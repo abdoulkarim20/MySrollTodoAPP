@@ -1,6 +1,31 @@
-//Recuperation des dom
+//Recuperation des dom de la carte
 const containerCarte=document.querySelector('.charge-cartes')
-console.log(containerCarte);
+// console.log(containerCarte);
+
+//Recuperation dom du formulaire
+const nomApp=document.querySelector('.nom-app');
+const prenomApp=document.querySelector('.prenom-app ');
+const niveauApp=document.querySelector('.les-niveau-app');
+const biographieApp=document.querySelector('.bioApp');
+const compteurMotSaisie=document.querySelector('#mot-saisie')
+const progressMotSaisie=document.querySelector('#progressChar');
+const restantDeMoSaisie=document.querySelector('#restant-saisie');
+const buttonAjouterApp=document.querySelector('.ajouter-app');
+const formulaireAddApp=document.querySelector('form');
+// console.log(nomApp,prenomApp,niveauApp,
+//     biographieApp,progressMotSaisie,restantDeMoSaisie,
+//     compteurMotSaisie,formulaireAddApp,buttonAjouterApp);
+
+
+//Je vais faire le control de saisie sur le champs message
+biographieApp.addEventListener('input',(e)=>{
+    let longueurMaxSaisie=130;
+    let longueurMot=biographieApp.value.length;
+    let leReste=longueurMaxSaisie-longueurMot;
+    progressMotSaisie.textContent=longueurMot;
+    restantDeMoSaisie.textContent="Il vous reste " +leReste+ " Caracteres";
+
+})
 
 
 //Creation d'une carte.
@@ -9,27 +34,6 @@ const ApprenantsData=[{
     id:1,
     nom:"abdoul Karim",
     prenoms:"DIALLO",
-    niveau:"Tres Bien",
-    biographie:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eius dicta quos eligendi non eaque modi? Aliquam perspiciatis consequatur ullam, blanditiis vero illo, exercitationem dolores id, doloribus consequuntur rerum recusandae.",
-},
-{
-    id:2,
-    nom:"abdoul Karim",
-    prenoms:"DIALLO",
-    niveau:"Bien",
-    biographie:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eius dicta quos eligendi non eaque modi? Aliquam perspiciatis consequatur ullam, blanditiis vero illo, exercitationem dolores id, doloribus consequuntur rerum recusandae.",
-},
-{
-    id:3,
-    nom:"abdoul Karim",
-    prenoms:"DIALLO",
-    niveau:"Assez Bien",
-    biographie:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eius dicta quos eligendi non eaque modi? Aliquam perspiciatis consequatur ullam, blanditiis vero illo, exercitationem dolores id, doloribus consequuntur rerum recusandae.",
-},
-{
-    id:4,
-    nom:"Rokhaya",
-    prenoms:"GUEYE",
     niveau:"Tres Bien",
     biographie:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eius dicta quos eligendi non eaque modi? Aliquam perspiciatis consequatur ullam, blanditiis vero illo, exercitationem dolores id, doloribus consequuntur rerum recusandae.",
 }]
