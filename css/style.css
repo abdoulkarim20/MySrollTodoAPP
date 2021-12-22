@@ -6,3 +6,24 @@
     font-family: 'Nunito Sans', sans-serif;
 }
 
+.carte-resulat-apprenant{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background: chartreuse;
+    margin-bottom: 1rem;
+}
+.nom-prenom-app{
+    display: flex;
+    flex-direction: row;
+    
+}
+.btn-delet-edit{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5rem;
+}
+.avatar-app{
+    display: flex;
+    flex-direction: row;
+}
