@@ -98,8 +98,12 @@ const ApprenantsData=[{
 
 //Creation d'une carte qui me permet de d'ajouter en html dynamiquement
 function createCarte(carte){
+    //Je vais recupere id de la carte
+    let idCarte="id_carteAsuprimer"+carte.id;
+    let idButtonRefuser="id_btnRefuser"+carte.id;
+    console.log(idCarte);
     containerCarte.insertAdjacentHTML("beforeend",
-    `<div class="carte-resulat-apprenant">
+    `<div class="carte-resulat-apprenant" id="${idCarte}">
     <div class="avatar-app">
         <img src="images/image-app.png" alt="" style="height: 70%; width: 70%;">
         
@@ -110,13 +114,25 @@ function createCarte(carte){
             <h6 class="prenom-app mx-2">${carte.prenoms}</h6>
             <div class="btn-delet-edit">
                 <a href=""><i class="bi bi-pencil-fill mx-3" style="font-size: 1.5rem;"></i></a>
-                <a href=""><i class="bi bi-x-circle mx-3" style="font-size: 1.5rem; color: #ce0033;"></i></a>
+                <a href=""><i id="${idButtonRefuser}" class="bi bi-x-circle mx-3" style="font-size: 1.5rem; color: #ce0033;"></i></a>
             </div> 
         </div>
         <p>${carte.biographie}</p>
         <h4 class="text-end mx-4">${carte.niveau}</h4>
     </div>                       
-</div>`)}
+</div>`)
+
+const deleteBtn=document.querySelector('#'+idButtonRefuser);
+const carteAsupprimer=document.querySelector('#'+idCarte);
+console.log(deleteBtn,carteAsupprimer);
+deleteBtn.addEventListener('click',(e)=>{
+    e.preventDefault();
+    carteAsupprimer.remove();
+    
+})
+
+
+}
 ApprenantsData.forEach((carte)=>createCarte(carte));
 
 //Je cree une function qui va me valider les champs
