@@ -21,28 +21,32 @@
                     <div class="form-floating mb-3">
                         <input type="text" class="nom-app form-control" name="nom" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Entrez le nom de l'apprenant</label>
+                        <div class="error-message"></div>
                     </div>
                     <div class="form-floating mb-3">
                         <input type="text" class="prenom-app form-control" name="prenom" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Entrez le prenom de l'apprenant</label>
+                        <div class="error-message"></div>
                     </div>
 
                     <select class="les-niveau-app form-select mb-3" aria-label="Default select example">
-                        <option selected>Selectionnez un niveau d'appreciation</option>
+                        <option value="">Selectionnez un niveau d'appreciation</option>
                         <option value="Tres Bien">Tres Bien</option>
                         <option value="Bien">Bien</option>
                         <option value="Assez Bien">Assez Bien</option>
+                        <div class="error-message"></div>
                     </select>
                     <div class="form-floating mb-3">
                         <textarea class="bioApp form-control" name="biographie" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
                         <label for="floatingTextarea2">Biographie de l'apprenant</label>
+                        <div class="error-message"></div>
                     </div>
                     <div class="text-center mb-3">
                         <p id="mot-saisie">Contenu saisi <span id="progressChar">00</span>/130</p>
                         <p id="restant-saisie"></p>
                     </div>
                     <div class="text-center mb-3">
-                        <button type="button" class="ajouter-app btn btn-success">Ajouter l'apprenant</button>
+                        <button type="submit" class="ajouter-app btn btn-success">Ajouter l'apprenant</button>
                     </div>
                 </form>
             </div>

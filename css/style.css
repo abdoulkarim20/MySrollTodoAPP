@@ -27,3 +27,9 @@
     display: flex;
     flex-direction: row;
 }
+.error{
+    border: 2px solid #ce0033;
+}
+.succees{
+    border-color: rgb(43, 255, 0);
+}
