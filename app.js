@@ -1,3 +1,5 @@
+const ApprenantsData=[]
+
 //Recuperation des dom de la carte
 const containerCarte=document.querySelector('.charge-cartes')
 // console.log(containerCarte);
@@ -54,7 +56,8 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             niveau:niveauApp.value,
             biographie:biographieApp.value
         }
-        console.log(newApprenants);
+        ApprenantsData.push(newApprenants);
+        console.log(ApprenantsData);
         createCarte(newApprenants);
         removeChamp();
     }
@@ -83,17 +86,12 @@ biographieApp.addEventListener('input',(e)=>{
         buttonAjouterApp.disabled = false;
     }
 })
+console.log(ApprenantsData);
 
 
 //Creation d'une carte.
 
-const ApprenantsData=[{
-    id:1,
-    nom:"abdoul Karim",
-    prenoms:"DIALLO",
-    niveau:"Tres Bien",
-    biographie:"Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ullam eius dicta quos eligendi non eaque modi? Aliquam perspiciatis consequatur ullam, blanditiis vero illo, exercitationem dolores id, doloribus consequuntur rerum recusandae.",
-}]
+
 
 
 //Creation d'une carte qui me permet de d'ajouter en html dynamiquement
@@ -128,12 +126,15 @@ console.log(deleteBtn,carteAsupprimer);
 deleteBtn.addEventListener('click',(e)=>{
     e.preventDefault();
     carteAsupprimer.remove();
-    
+    // const dataJson=JSON.stringify(ApprenantsData);
+    // const newDataJson=ApprenantsData.filter((carte)=>idCarte=ApprenantsData.id);
+    // console.log(newDataJson);
 })
-
 
 }
 ApprenantsData.forEach((carte)=>createCarte(carte));
+
+
 
 //Je cree une function qui va me valider les champs
 // function setError(champName, message){
