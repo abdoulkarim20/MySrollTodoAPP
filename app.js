@@ -57,7 +57,7 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             biographie:biographieApp.value
         }
         ApprenantsData.push(newApprenants);
-        // console.log(ApprenantsData);
+        console.log(ApprenantsData);
         createCarte(newApprenants);
         removeChamp();
     }
@@ -98,95 +98,73 @@ biographieApp.addEventListener('input',(e)=>{
 function createCarte(carte){
     //Je vais recupere id de la carte
     let idCarte="id_carteAsuprimer"+carte.id;
-    let idButtonRefuser="id_btnRefuser"+carte.id;
-    console.log(idCarte);
+    let idButtonSupprimer="id_btnSupprime"+carte.id;
+    let idButtonModifier="id_btnModifier"+carte.id;
+    console.log(idCarte , idButtonSupprimer);
     containerCarte.insertAdjacentHTML("beforeend",
-    `<div class="carte-resulat-apprenant" id="${idCarte}">
-    <div class="avatar-app">
-        <img src="images/image-app.png" alt="" style="height: 70%; width: 70%;">
-        
-    </div>
-    <div class="column">
-        <div class="nom-prenom-app">
-            <h6 class="nom-app mx-2">${carte.nom}</h6>
-            <h6 class="prenom-app mx-2">${carte.prenoms}</h6>
-            <div class="btn-delet-edit">
-                <a href=""><i class="bi bi-pencil-fill mx-3" style="font-size: 1.5rem;"></i></a>
-                <a href=""><i id="${idButtonRefuser}" class="bi bi-x-circle mx-3" style="font-size: 1.5rem; color: #ce0033;"></i></a>
-            </div> 
+    `
+        <div class="carte-resulat-apprenant" id="${idCarte}">
+            <div class="avatar-app">
+                <img src="images/image-app.png" alt="" style="height: 70%; width: 70%;">
+                
+            </div>
+            <div class="column">
+                <div class="nom-prenom-app">
+                    <h6 class="nom-app mx-2">${carte.nom}</h6>
+                    <h6 class="prenom-app mx-2">${carte.prenoms}</h6>
+                    <div class="btn-delet-edit">
+                        <a href=""><i id="${idButtonModifier}" class="bi bi-pencil-fill mx-3" style="font-size: 1.5rem;"></i></a>
+                        <a href=""><i id="${idButtonSupprimer}" class="bi bi-x-circle mx-3" style="font-size: 1.5rem; color: #ce0033;"></i></a>
+                    </div> 
+                </div>
+                <p>${carte.biographie}</p>
+                <h4 class="text-end mx-4">${carte.niveau}</h4>
+            </div>                       
         </div>
-        <p>${carte.biographie}</p>
-        <h4 class="text-end mx-4">${carte.niveau}</h4>
-    </div>                       
-</div>`)
+    `)
 
-//Le button qui va me permettre de supprimer
-
-const deleteBtn=document.querySelector('#'+idButtonRefuser);
-const carteAsupprimer=document.querySelector('#'+idCarte);
-console.log(deleteBtn,carteAsupprimer);
-deleteBtn.addEventListener('click',(e)=>{
-    e.preventDefault();
-    
-    const indexElement=ApprenantsData.indexOf(carte);
-    // console.log(indexElement);
-    // console.log(ApprenantsData);
-    if(indexElement!==-1){
-        ApprenantsData.splice(indexElement,1);
-        carteAsupprimer.remove();
-        // console.log(arr);
-        console.log(ApprenantsData);
-    }
-
-       
+    //Le button qui va me permettre de supprimer
+    const deleteBtn=document.querySelector('#'+idButtonSupprimer);
+    const carteAsupprimer=document.querySelector('#'+idCarte);
+    // console.log(deleteBtn,carteAsupprimer);
+    deleteBtn.addEventListener('click',(e)=>{
+        e.preventDefault();
         
-        // if(indexElement>-1){
-           
-        //     // 
-        //     console.log(arr);
-        // }else{
-        //     console.log("pas ok");
-        // }
+        const indexElement=ApprenantsData.indexOf(carte);
+        // console.log(indexElement);
+        // console.log(ApprenantsData);
+        if(indexElement!==-1){
+            ApprenantsData.splice(indexElement,1);
+            carteAsupprimer.remove();
+            // console.log(arr);
+            console.log(ApprenantsData);
+            
+        }
+    })
+
+    //le button qui va me permettre de modifier;
+    const editBtn=document.querySelector('#'+idButtonModifier);
+    // console.log(editBtn);
+    editBtn.addEventListener('click',(e)=>{
+        e.preventDefault();
+        // alert("modifier");
+        const indexElement=ApprenantsData.indexOf(carte);
+
+        nomApp.value=ApprenantsData[indexElement].nom;
+        prenomApp.value=ApprenantsData[indexElement].prenoms;
+        niveauApp.value=ApprenantsData[indexElement].niveau;
+        biographieApp.value=ApprenantsData[indexElement].biographie;
         
-
-    
-        // if(indexElement>-1){
-        //     
-        //     carteAsupprimer.remove();
-        //     // console.log(ApprenantsData);
-        //     // return ApprenantsData;
-        //     console.log(ApprenantsData);
-        // }else{
-        //     console.log("pas");
-        // }
-   
-        
-    
-
-
-    // if(indexElement===indexElement){
-
-    
-    //     
-    //     
-    // }
-    // console.log(indexElement);
-    
-
-
-
-    // let newA=ApprenantsData.filter((carte)=>carte.id==ApprenantsData.id);
-    // console.log(newA);
-    // ApprenantsData.slice(carte,1);
-    // // console.log(newData);
-    // console.log(ApprenantsData);
-
-    // const dataJson=JSON.stringify(ApprenantsData);
-    // const newDataJson=ApprenantsData.filter((carte)=>idCarte=ApprenantsData.id);
-    // console.log(newDataJson);
-})
+        // console.log(ApprenantsData[indexElement].prenoms,
+        //     ApprenantsData[indexElement].niveau,
+        //     ApprenantsData[indexElement].biographie,
+        //     ApprenantsData[indexElement].nom);
+    })
 
 }
+
+
+
 
 ApprenantsData.forEach((carte)=>createCarte(carte));
 
