@@ -57,7 +57,7 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             biographie:biographieApp.value
         }
         ApprenantsData.push(newApprenants);
-        console.log(ApprenantsData);
+        // console.log(ApprenantsData);
         createCarte(newApprenants);
         removeChamp();
     }
@@ -86,7 +86,7 @@ biographieApp.addEventListener('input',(e)=>{
         buttonAjouterApp.disabled = false;
     }
 })
-console.log(ApprenantsData);
+// console.log(ApprenantsData);
 
 
 //Creation d'une carte.
@@ -120,19 +120,173 @@ function createCarte(carte){
     </div>                       
 </div>`)
 
+//Le button qui va me permettre de supprimer
+
 const deleteBtn=document.querySelector('#'+idButtonRefuser);
 const carteAsupprimer=document.querySelector('#'+idCarte);
 console.log(deleteBtn,carteAsupprimer);
 deleteBtn.addEventListener('click',(e)=>{
     e.preventDefault();
-    carteAsupprimer.remove();
+    
+    const indexElement=ApprenantsData.indexOf(carte);
+    // console.log(indexElement);
+    // console.log(ApprenantsData);
+    if(indexElement!==-1){
+        ApprenantsData.splice(indexElement,1);
+        carteAsupprimer.remove();
+        // console.log(arr);
+        console.log(ApprenantsData);
+    }
+
+       
+        
+        // if(indexElement>-1){
+           
+        //     // 
+        //     console.log(arr);
+        // }else{
+        //     console.log("pas ok");
+        // }
+        
+
+    
+        // if(indexElement>-1){
+        //     
+        //     carteAsupprimer.remove();
+        //     // console.log(ApprenantsData);
+        //     // return ApprenantsData;
+        //     console.log(ApprenantsData);
+        // }else{
+        //     console.log("pas");
+        // }
+   
+        
+    
+
+
+    // if(indexElement===indexElement){
+
+    
+    //     
+    //     
+    // }
+    // console.log(indexElement);
+    
+
+
+
+    // let newA=ApprenantsData.filter((carte)=>carte.id==ApprenantsData.id);
+    // console.log(newA);
+    // ApprenantsData.slice(carte,1);
+    // // console.log(newData);
+    // console.log(ApprenantsData);
+
     // const dataJson=JSON.stringify(ApprenantsData);
     // const newDataJson=ApprenantsData.filter((carte)=>idCarte=ApprenantsData.id);
     // console.log(newDataJson);
 })
 
 }
+
 ApprenantsData.forEach((carte)=>createCarte(carte));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
