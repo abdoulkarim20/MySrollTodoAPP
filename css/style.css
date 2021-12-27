@@ -33,3 +33,6 @@
 .succees{
     border-color: rgb(43, 255, 0);
 }
+.modifer-app {
+    visibility: hidden;
+}

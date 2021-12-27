@@ -16,6 +16,8 @@ const buttonAjouterApp=document.querySelector('.ajouter-app');
 const formulaireAddApp=document.querySelector('form');
 
 const displayError=document.querySelector('.error-message')
+
+const buttonModifier=document.querySelector('.modifer-app ');
 // console.log(nomApp,prenomApp,niveauApp,
 //     biographieApp,progressMotSaisie,restantDeMoSaisie,
 //     compteurMotSaisie,formulaireAddApp,buttonAjouterApp);
@@ -149,16 +151,17 @@ function createCarte(carte){
         e.preventDefault();
         // alert("modifier");
         const indexElement=ApprenantsData.indexOf(carte);
-
         nomApp.value=ApprenantsData[indexElement].nom;
         prenomApp.value=ApprenantsData[indexElement].prenoms;
         niveauApp.value=ApprenantsData[indexElement].niveau;
         biographieApp.value=ApprenantsData[indexElement].biographie;
         
-        // console.log(ApprenantsData[indexElement].prenoms,
-        //     ApprenantsData[indexElement].niveau,
-        //     ApprenantsData[indexElement].biographie,
-        //     ApprenantsData[indexElement].nom);
+        
+       
+      
+        
+        
+        
     })
 
 }
