@@ -17,7 +17,7 @@
             <div class="col-6" style="background-color: aqua;">
                 <h1 class="text-center">Ajouter un apprenant</h1>
                 <form action="">
-                    
+                    <input type="hidden"  name="id" id="id-datas">
                     <div class="form-floating mb-3">
                         <input type="text" class="nom-app form-control" name="nom" id="floatingInput" placeholder="name@example.com">
                         <label for="floatingInput">Entrez le nom de l'apprenant</label>
@@ -47,7 +47,8 @@
                     </div>
                     <div class="text-center mb-3">
                         <button type="submit" class="ajouter-app btn btn-success">Ajouter l'apprenant</button>
-                        <button type="submit" class="modifer-app btn btn-success">Modifier l'apprenant</button>                    </div>
+                        <!-- <button type="submit" id="modifer-data" class="modifer-app btn btn-success">Modifier l'apprenant</button>                     -->
+                    </div>
                 </form>
             </div>
             <div class="col-6" style="background-color: rgb(124, 124, 219);">

@@ -2,6 +2,9 @@ const ApprenantsData=[]
 
 //Recuperation des dom de la carte
 const containerCarte=document.querySelector('.charge-cartes')
+
+const identifiant=document.querySelector('#id-datas');
+// console.log(identifiant);
 // console.log(containerCarte);
 
 //Recuperation dom du formulaire
@@ -17,7 +20,11 @@ const formulaireAddApp=document.querySelector('form');
 
 const displayError=document.querySelector('.error-message')
 
-const buttonModifier=document.querySelector('.modifer-app ');
+const buttonModifier=document.querySelector('.modifer-app');
+
+const modifierData=document.querySelector('#modifer-data');
+
+console.log(modifierData);
 // console.log(nomApp,prenomApp,niveauApp,
 //     biographieApp,progressMotSaisie,restantDeMoSaisie,
 //     compteurMotSaisie,formulaireAddApp,buttonAjouterApp);
@@ -50,7 +57,7 @@ formulaireAddApp.addEventListener('submit',(e)=>{
         biographieApp.classList.add('error');
         // displayError.textContent="La biographie ne doit pas etre vide"
         displayError.style.color="#ce0033";  
-    }else{
+    }else if(identifiant.value==''){
         const newApprenants={
             id:Date.now(),
             nom:nomApp.value,
@@ -59,12 +66,25 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             biographie:biographieApp.value
         }
         ApprenantsData.push(newApprenants);
-        console.log(ApprenantsData);
+        // console.log(ApprenantsData);
+        // console.log(identifiant.value);
         createCarte(newApprenants);
-        removeChamp();
+    }else{
+        const dataEdit={
+            nom:nomApp.value,
+            prenoms:prenomApp.value,
+            niveau:niveauApp.value,
+            biographie:biographieApp.value
+        }
+        ApprenantsData.splice(identifiant.value,1,dataEdit)
+        containerCarte.innerHTML="";
+        ApprenantsData.forEach(carte=>{
+            createCarte(carte);
+        })
+        identifiant.value='';
     }
-
-  
+    removeChamp();
+   
 })
 
 
@@ -151,17 +171,42 @@ function createCarte(carte){
         e.preventDefault();
         // alert("modifier");
         const indexElement=ApprenantsData.indexOf(carte);
+        identifiant.value=indexElement;
         nomApp.value=ApprenantsData[indexElement].nom;
         prenomApp.value=ApprenantsData[indexElement].prenoms;
         niveauApp.value=ApprenantsData[indexElement].niveau;
         biographieApp.value=ApprenantsData[indexElement].biographie;
-        
-        
-       
-      
-        
-        
-        
+        // buttonAjouterApp.classList.add('modifer-app');
+        // modifierData.classList.remove('modifer-app');
+        console.log(indexElement);
+        // buttonAjouterApp.textContent="Modifier l'apprenant"
+
+        // modifierData.addEventListener('click', (e)=>{
+        //     e.preventDefault();
+        //         console.log(tabModif);
+        //         console.log(identifiant.value);
+        //     if(indexElement==indexElement){
+        //         const tabModif={
+        //         nom:nomApp.value,
+        //         prenoms:prenomApp.value,
+        //         niveau:niveauApp.value,
+        //         biographie:biographieApp.value
+        //         }
+        //             nomApp.value="";
+        //             prenomApp.value="";
+        //             niveauApp.value="";
+        //             biographieApp.value="";
+        //         ApprenantsData.splice(indexElement,1,tabModif)
+        //         console.log(ApprenantsData);
+        //         containerCarte.innerHTML="";
+        //         buttonAjouterApp.classList.remove('modifer-app');
+        //         modifierData.classList.add('modifer-app');
+        //         ApprenantsData.forEach(carte=>{
+        //             createCarte(carte);
+        //         })
+                
+        //     }  
+        // })  
     })
 
 }
