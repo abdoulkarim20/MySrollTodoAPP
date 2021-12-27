@@ -10,7 +10,7 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background: chartreuse;
+    box-shadow: 2px 2px 2px 2px rgba(62, 62, 66, 0.1);
     margin-bottom: 1rem;
 }
 .nom-prenom-app{
@@ -35,4 +35,10 @@
 }
 .modifer-app {
     visibility: hidden;
+}
+.app-container {
+    box-shadow: 5px 5px 5px 5px rgba(163, 163, 250, 0.1);
+}
+.form-container {
+    box-shadow: 2px 2px 2px 1px rgba(155, 155, 221, 0.1)
 }
