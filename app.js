@@ -1,3 +1,5 @@
+const URL_API="https://eunurtstlwiselpnhdlx.supabase.co/rest/v1/Apprenant";
+const API_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDY4ODAyNCwiZXhwIjoxOTU2MjY0MDI0fQ.TmCrjrlgP1Eos7T1RFWTm2xZTwhIognYalzkL1ZFhoo";
 const ApprenantsData=[]
 
 //Recuperation des dom de la carte
@@ -24,19 +26,22 @@ const buttonModifier=document.querySelector('.modifer-app');
 
 const modifierData=document.querySelector('#modifer-data');
 
-console.log(modifierData);
+const saveData=document.querySelector('#save-data');
+
+const competenceMaquette=document.querySelector('.la-comptence-mquette');
+const comptenceUserStatiqueAdaptable=document.querySelector('.la-comptence-user-statique');
+const comptenceUserDynamique=document.querySelector('.la-comptence-user-dynamique');
+const comptenceUserGestionContenu=document.querySelector('.la-comptence-user-gestion-contenu');
+const comptenceCreateDb=document.querySelector('.la-comptence-cree-db');
+const comptenceComposantAcces=document.querySelector('.la-comptence-composant-accees');
+const comptenceDevlopperBackend=document.querySelector('.la-comptence-developper-backend');
+const comptenceComposantAplication=document.querySelector('.la-comptence-composant-application');
+
+// console.log(modifierData);
 // console.log(nomApp,prenomApp,niveauApp,
 //     biographieApp,progressMotSaisie,restantDeMoSaisie,
 //     compteurMotSaisie,formulaireAddApp,buttonAjouterApp);
 
-//Je cree une fonction pour vider les champs
-function removeChamp(){
-    nomApp.value="";
-    prenomApp.value="";
-    niveauApp.value="";
-    biographieApp.value="";
-
-}
 
 //Ajout dans la base de donner
 formulaireAddApp.addEventListener('submit',(e)=>{
@@ -63,12 +68,21 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             nom:nomApp.value,
             prenoms:prenomApp.value,
             niveau:niveauApp.value,
-            biographie:biographieApp.value
+            biographie:biographieApp.value,
+            competenceMaquette:competenceMaquette.value,
+            competenceUserInterface:comptenceUserStatiqueAdaptable.value,
+            competenceUserInterfaceDynamique:comptenceUserDynamique.value,
+            competenceGestionContenu:comptenceUserGestionContenu.value,
+            competenceCreationDb:comptenceCreateDb.value,
+            competenceAccesAuxDonnee:comptenceComposantAcces.value,
+            competenceDevelopperBkend:comptenceDevlopperBackend.value,
+            competenceEnApplicationContenu:comptenceComposantAplication.value
         }
-        ApprenantsData.push(newApprenants);
-        // console.log(ApprenantsData);
-        // console.log(identifiant.value);
         createCarte(newApprenants);
+        ApprenantsData.push(newApprenants);
+        console.log(ApprenantsData);
+       
+        // console.log(identifiant.value);
     }else{
         const dataEdit={
             nom:nomApp.value,
@@ -82,10 +96,14 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             createCarte(carte);
         })
         identifiant.value='';
+        console.log(ApprenantsData);
     }
     removeChamp();
+    
+    
    
 })
+
 
 
 //Je vais faire le control de saisie sur le champs message
@@ -155,12 +173,11 @@ function createCarte(carte){
         const indexElement=ApprenantsData.indexOf(carte);
         // console.log(indexElement);
         // console.log(ApprenantsData);
-        if(indexElement!==-1){
+        if(indexElement>-1){
             ApprenantsData.splice(indexElement,1);
             carteAsupprimer.remove();
             // console.log(arr);
-            console.log(ApprenantsData);
-            
+            console.log(ApprenantsData);  
         }
     })
 
@@ -211,10 +228,50 @@ function createCarte(carte){
 
 }
 
+saveData.addEventListener('click',(e)=>{
+    //Je vais sauvegarder les data dans la base de donner
+    fetch(URL_API,{
+        method:"POST",
+        headers:{
+            "Content-Type": "application/json",
+            apikey:API_KEY,
+            Prefer: "return=representation" 
+        },
+        body:JSON.stringify(ApprenantsData),
+
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+        console.log(data); 
+        containerCarte.innerHTML=""; 
+    })
+    ApprenantsData.splice(0,ApprenantsData.length);
+    console.log(ApprenantsData);
+    
+    // console.log(ApprenantsData);
+})
+
 
 
 
 ApprenantsData.forEach((carte)=>createCarte(carte));
+
+//Je cree une fonction pour vider les champs
+function removeChamp(){
+    nomApp.value="";
+    prenomApp.value="";
+    niveauApp.value="";
+    biographieApp.value="";
+    competenceMaquette.value="";
+    comptenceUserStatiqueAdaptable.value="";
+    comptenceUserDynamique.value="";
+    comptenceUserGestionContenu.value="";
+    comptenceCreateDb.value="";
+    comptenceComposantAcces.value="";
+    comptenceDevlopperBackend.value="";
+    comptenceComposantAplication.value="";
+
+}
 
 
 
