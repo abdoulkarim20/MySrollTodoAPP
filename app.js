@@ -36,6 +36,8 @@ const comptenceCreateDb=document.querySelector('.la-comptence-cree-db');
 const comptenceComposantAcces=document.querySelector('.la-comptence-composant-accees');
 const comptenceDevlopperBackend=document.querySelector('.la-comptence-developper-backend');
 const comptenceComposantAplication=document.querySelector('.la-comptence-composant-application');
+// console.log(comptenceComposantAplication,comptenceDevlopperBackend,comptenceComposantAcces);
+
 
 // console.log(modifierData);
 // console.log(nomApp,prenomApp,niveauApp,
@@ -85,10 +87,19 @@ formulaireAddApp.addEventListener('submit',(e)=>{
         // console.log(identifiant.value);
     }else{
         const dataEdit={
+            id:Date.now(),
             nom:nomApp.value,
             prenoms:prenomApp.value,
             niveau:niveauApp.value,
-            biographie:biographieApp.value
+            biographie:biographieApp.value,
+            competenceMaquette:competenceMaquette.value,
+            competenceUserInterface:comptenceUserStatiqueAdaptable.value,
+            competenceUserInterfaceDynamique:comptenceUserDynamique.value,
+            competenceGestionContenu:comptenceUserGestionContenu.value,
+            competenceCreationDb:comptenceCreateDb.value,
+            competenceAccesAuxDonnee:comptenceComposantAcces.value,
+            competenceDevelopperBkend:comptenceDevlopperBackend.value,
+            competenceEnApplicationContenu:comptenceComposantAplication.value
         }
         ApprenantsData.splice(identifiant.value,1,dataEdit)
         containerCarte.innerHTML="";
@@ -140,7 +151,7 @@ function createCarte(carte){
     let idCarte="id_carteAsuprimer"+carte.id;
     let idButtonSupprimer="id_btnSupprime"+carte.id;
     let idButtonModifier="id_btnModifier"+carte.id;
-    console.log(idCarte , idButtonSupprimer);
+    // console.log(idCarte , idButtonSupprimer);
     containerCarte.insertAdjacentHTML("beforeend",
     `
         <div class="carte-resulat-apprenant" id="${idCarte}">
@@ -193,58 +204,40 @@ function createCarte(carte){
         prenomApp.value=ApprenantsData[indexElement].prenoms;
         niveauApp.value=ApprenantsData[indexElement].niveau;
         biographieApp.value=ApprenantsData[indexElement].biographie;
-        // buttonAjouterApp.classList.add('modifer-app');
-        // modifierData.classList.remove('modifer-app');
+        competenceMaquette.value=ApprenantsData[indexElement].competenceMaquette;
+        comptenceUserStatiqueAdaptable.value=ApprenantsData[indexElement].competenceUserInterface;
+        comptenceUserDynamique.value=ApprenantsData[indexElement].competenceUserInterfaceDynamique;
+        comptenceUserGestionContenu.value=ApprenantsData[indexElement].competenceGestionContenu;
+        comptenceCreateDb.value=ApprenantsData[indexElement].competenceCreationDb;
+        comptenceComposantAcces.value=ApprenantsData[indexElement].competenceAccesAuxDonnee;
+        comptenceDevlopperBackend.value=ApprenantsData[indexElement].competenceDevelopperBkend;
+        comptenceComposantAplication.value=ApprenantsData[indexElement].competenceEnApplicationContenu;
         console.log(indexElement);
-        // buttonAjouterApp.textContent="Modifier l'apprenant"
-
-        // modifierData.addEventListener('click', (e)=>{
-        //     e.preventDefault();
-        //         console.log(tabModif);
-        //         console.log(identifiant.value);
-        //     if(indexElement==indexElement){
-        //         const tabModif={
-        //         nom:nomApp.value,
-        //         prenoms:prenomApp.value,
-        //         niveau:niveauApp.value,
-        //         biographie:biographieApp.value
-        //         }
-        //             nomApp.value="";
-        //             prenomApp.value="";
-        //             niveauApp.value="";
-        //             biographieApp.value="";
-        //         ApprenantsData.splice(indexElement,1,tabModif)
-        //         console.log(ApprenantsData);
-        //         containerCarte.innerHTML="";
-        //         buttonAjouterApp.classList.remove('modifer-app');
-        //         modifierData.classList.add('modifer-app');
-        //         ApprenantsData.forEach(carte=>{
-        //             createCarte(carte);
-        //         })
-                
-        //     }  
-        // })  
     })
 
 }
 
 saveData.addEventListener('click',(e)=>{
     //Je vais sauvegarder les data dans la base de donner
-    fetch(URL_API,{
-        method:"POST",
-        headers:{
-            "Content-Type": "application/json",
-            apikey:API_KEY,
-            Prefer: "return=representation" 
-        },
-        body:JSON.stringify(ApprenantsData),
-
+    ApprenantsData.forEach(apprenant=>{
+        delete apprenant['id'];
+        fetch(URL_API,{
+            method:"POST",
+            headers:{
+                "Content-Type": "application/json",
+                apikey:API_KEY,
+                Prefer: "return=representation" 
+            },
+            body:JSON.stringify(apprenant),
+    
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            console.log(data); 
+            containerCarte.innerHTML=""; 
+        })
     })
-    .then((response)=>response.json())
-    .then((data)=>{
-        console.log(data); 
-        containerCarte.innerHTML=""; 
-    })
+  
     ApprenantsData.splice(0,ApprenantsData.length);
     console.log(ApprenantsData);
     
@@ -272,6 +265,8 @@ function removeChamp(){
     comptenceComposantAplication.value="";
 
 }
+
+
 
 
 

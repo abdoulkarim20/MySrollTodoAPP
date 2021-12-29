@@ -10,8 +10,22 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     box-shadow: 2px 2px 2px 2px rgba(62, 62, 66, 0.1);
     margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 1px solid;
+}
+.carte-list-apprenant{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 45%;
+    align-items: center;
+    box-shadow: 2px 2px 2px 2px rgba(62, 62, 66, 0.1);
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    border: 1px rgb(red, green, blue) solid;
 }
 .nom-prenom-app{
     display: flex;
@@ -41,4 +55,9 @@
 }
 .form-container {
     box-shadow: 2px 2px 2px 1px rgba(155, 155, 221, 0.1)
+}
+.charge-liste-apprenanat{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
