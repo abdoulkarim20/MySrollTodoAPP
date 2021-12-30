@@ -4,6 +4,40 @@ const API_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6
 const listeApprenant=document.querySelector('.charge-liste-apprenanat');
 // console.log(listeApprenant);
 
+//esseye
+const identifiant=document.querySelector('#id-datas');
+// console.log(identifiant);
+// console.log(containerCarte);
+
+//Recuperation dom du formulaire
+const nomApp=document.querySelector('.nom-app');
+const prenomApp=document.querySelector('.prenom-app ');
+const niveauApp=document.querySelector('.les-niveau-app');
+const biographieApp=document.querySelector('.bioApp');
+const compteurMotSaisie=document.querySelector('#mot-saisie')
+const progressMotSaisie=document.querySelector('#progressChar');
+const restantDeMoSaisie=document.querySelector('#restant-saisie');
+const buttonAjouterApp=document.querySelector('.ajouter-app');
+const formulaireAddApp=document.querySelector('form');
+
+const displayError=document.querySelector('.error-message')
+
+const buttonModifier=document.querySelector('.modifer-app');
+
+const modifierData=document.querySelector('#modifer-data');
+
+const saveData=document.querySelector('#save-data');
+
+const competenceMaquette=document.querySelector('.la-comptence-mquette');
+const comptenceUserStatiqueAdaptable=document.querySelector('.la-comptence-user-statique');
+const comptenceUserDynamique=document.querySelector('.la-comptence-user-dynamique');
+const comptenceUserGestionContenu=document.querySelector('.la-comptence-user-gestion-contenu');
+const comptenceCreateDb=document.querySelector('.la-comptence-cree-db');
+const comptenceComposantAcces=document.querySelector('.la-comptence-composant-accees');
+const comptenceDevlopperBackend=document.querySelector('.la-comptence-developper-backend');
+const comptenceComposantAplication=document.querySelector('.la-comptence-composant-application');
+//esseye
+
 function createListeApprenant(list){
 
     let ButtonSupprimer="id_btnSupprime"+list.id;
@@ -55,23 +89,76 @@ function createListeApprenant(list){
 
     //Update btn
     const btnModifier=document.querySelector('#'+ButtonModifier);
-    console.log(list.nom, list.prenoms, list.id ,list.niveau, list.biographie, list.competenceMaquette)
+    const testNom=document.querySelector('#recupId');
+    const inchang=document.querySelector('#test');
+    const containerModif=document.querySelector('.form-container');
+    // console.log(containerModif);
     btnModifier.addEventListener('click',(e)=>{
         e.preventDefault();
+            //Je recupere d'abord l'element complet a modifier
         fetch(URL_API+"?id=eq."+list.id,{
+            method:"GET",
+            headers:{
+                apikey:API_KEY,
+                "Content-Type": "application/json",
+                Prefer:"return=representation"
+            }
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            // const indexElement=ApprenantsData.indexOf(carte);
+            identifiant.value=list.id;
+            nomApp.value=list.nom
+            prenomApp.value=list.prenoms;
+            niveauApp.value=list.niveau;
+            biographieApp.value=list.biographie;
+            competenceMaquette.value=list.competenceMaquette;
+            comptenceUserStatiqueAdaptable.value=list.competenceUserInterface;
+            comptenceUserDynamique.value=list.competenceUserInterfaceDynamique;
+            comptenceUserGestionContenu.value=list.competenceGestionContenu;
+            comptenceCreateDb.value=list.competenceCreationDb;
+            comptenceComposantAcces.value=list.competenceAccesAuxDonnee;
+            comptenceDevlopperBackend.value=list.competenceDevelopperBkend;
+            comptenceComposantAplication.value=list.competenceEnApplicationContenu;
+        })
+    })
+
+    const formModif=document.querySelector('form');
+    formModif.addEventListener('submit',(e)=>{
+        e.preventDefault();
+        fetch(URL_API+"?id=eq."+identifiant.value,{
             method:"PATCH",
             headers:{
                 apikey:API_KEY,
                 "Content-Type": "application/json",
                 Prefer:"return=representation"
             },
-            body:JSON.stringify({"nom":"test","prenoms":"Abdul Karim DIALLO","niveau":"Bien","biographie":"Je suis entrain d'apprendre javascript","competenceMaquette":"Bien"})
+            body:JSON.stringify({
+                                "nom":nomApp.value,
+                                "prenoms":prenomApp.value,
+                                "niveau":niveauApp.value,
+                                "biographie":biographieApp.value,
+                                "competenceMaquette":competenceMaquette.value,
+                                "competenceUserInterface":comptenceUserStatiqueAdaptable.value,
+                                "competenceUserInterfaceDynamique":comptenceUserDynamique.value,
+                                "competenceGestionContenu":comptenceUserGestionContenu.value,
+                                "competenceCreationDb":comptenceCreateDb.value,
+                                "competenceAccesAuxDonnee":comptenceComposantAcces.value,
+                                "competenceDevelopperBkend":comptenceDevlopperBackend.value,
+                                "competenceEnApplicationContenu":comptenceComposantAplication.value
+                                })
         })
         .then((response)=>response.json())
         .then((data)=>{
-            console.log(data);
+            removeChamp();
         })
-    });
+    })
+    
+    // console.log(list.nom, list.prenoms, list.id ,list.niveau, list.biographie, list.competenceMaquette)
+    // btnModifier.addEventListener('click',(e)=>{
+    //     e.preventDefault();
+    
+    // });
 }
 
 window.addEventListener('DOMContentLoaded',(e)=>{
@@ -81,7 +168,8 @@ window.addEventListener('DOMContentLoaded',(e)=>{
             apikey:API_KEY,
             "Content-Type": "application/json", 
         }
-    }).then((response)=>response.json())
+    })
+    .then((response)=>response.json())
     .then((data)=>{
         data.forEach((list) => {
             createListeApprenant(list);
@@ -89,4 +177,18 @@ window.addEventListener('DOMContentLoaded',(e)=>{
     })
 });
 
+function removeChamp(){
+    nomApp.value="";
+    prenomApp.value="";
+    niveauApp.value="";
+    biographieApp.value="";
+    competenceMaquette.value="";
+    comptenceUserStatiqueAdaptable.value="";
+    comptenceUserDynamique.value="";
+    comptenceUserGestionContenu.value="";
+    comptenceCreateDb.value="";
+    comptenceComposantAcces.value="";
+    comptenceDevlopperBackend.value="";
+    comptenceComposantAplication.value="";
 
+}

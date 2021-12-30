@@ -368,6 +368,7 @@ function removeChamp(){
 
 
 
+
 //Je cree une function qui va me valider les champs
 // function setError(champName, message){
 //     displayError.textContent=message;

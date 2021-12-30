@@ -10,7 +10,7 @@
     <title>La liste des apprenants</title>
 </head>
 <body>
-    <div class="container mt-5">
+    <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12">
                 <h1 class="text-center">Liste des apprenants</h1>
@@ -20,6 +20,127 @@
             </div>
         </div>
     </div>
+    
+    <div class="form-container col-md-7 col-lg-7 col-xl-7 col-sm-12">
+        <h1 class="text-center">Ajouter un apprenant</h1>
+        <form action="">
+            <input type="hidden"  name="id" id="id-datas">
+            <div class="form-floating mb-3">
+                <input type="text" class="nom-app form-control" name="nom" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Entrez le nom de l'apprenant</label>
+                <div class="error-message"></div>
+            </div>
+            <div class="form-floating mb-3">
+                <input type="text" class="prenom-app form-control" name="prenom" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Entrez le prenom de l'apprenant</label>
+                <div class="error-message"></div>
+            </div>
+
+            <select class="les-niveau-app form-select mb-3" aria-label="Default select example">
+                <option value="">Selectionnez un niveau d'appreciation</option>
+                <option value="Tres Bien">Tres Bien</option>
+                <option value="Bien">Bien</option>
+                <option value="Assez Bien">Assez Bien</option>
+                <div class="error-message"></div>
+            </select>
+            <div class="form-floating mb-3">
+                <textarea class="bioApp form-control" name="biographie" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                <label for="floatingTextarea2">Biographie de l'apprenant</label>
+                <div class="error-message"></div>
+            </div>
+            <div class="text-center mb-3">
+                <p id="mot-saisie">Contenu saisi <span id="progressChar">00</span>/130</p>
+                <p id="restant-saisie"></p>
+            </div>
+            <div class="row">
+                <div style="width: 50%;">
+                    <select class="la-comptence-mquette form-select mb-3" >
+                        <option value="">Maquetter une application</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>
+                <div style="width: 50%;">
+                    <select class="la-comptence-user-statique form-select mb-3" >
+                        <option value="">Réaliser une interface utilisateur web statique et adaptable</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>   
+                <div style="width: 50%;">
+                    <select class="la-comptence-user-dynamique form-select mb-3" >
+                        <option value="">Développer une interface utilisateur web dynamique</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>
+                <div style="width: 50%;">
+                    <select class="la-comptence-user-gestion-contenu form-select mb-3" >
+                        <option value="">Réaliser une interface utilisateur avec une solution de gestion de contenu ou e- commerce</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>   
+                <div style="width: 50%;">
+                    <select class="la-comptence-cree-db form-select mb-3" >
+                        <option value="">Créer une base de données</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>
+                <div style="width: 50%;">
+                    <select class="la-comptence-composant-accees form-select mb-3" >
+                        <option value="">Développer les composants d’accès aux données</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>   
+                <div style="width: 50%;">
+                    <select class="la-comptence-developper-backend form-select mb-3" >
+                        <option value="">Développer la partie back-end d’une application web ou web mobile</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>
+                <div style="width: 50%;">
+                    <select class="la-comptence-composant-application form-select mb-3" >
+                        <option value="">Elaborer et mettre en œuvre des composants dans une application de gestion de contenu ou e-commerce</option>
+                        <option value="Débutant">Débutant</option>
+                        <option value="Intermediaire">Intermediaire</option>
+                        <option value="Avancée">Avancée</option>
+                        <option value="Expert">Expert</option>
+                        <div class="error-message"></div>
+                    </select>
+                </div>                  
+            </div>
+            <div class="text-center mb-3">
+                <button type="submit" class="ajouter-app btn btn-success">Ajouter l'apprenant</button>
+                <!-- <button type="submit" id="modifer-data" class="modifer-app btn btn-success">Modifier l'apprenant</button>                     -->
+            </div>
+        </form>
+    </div>
+    <!-- <h1 id="test"></h1> -->
 
 
 
