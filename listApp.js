@@ -57,7 +57,7 @@ function createListeApprenant(list){
                     <h6 class="nom-app mx-2">${list.nom}</h6>
                     <h6 class="prenom-app mx-2">${list.prenoms}</h6>
                     <div class="btn-delet-edit">
-                        <a href=""><i id="${ButtonModifier}" class="bi bi-pencil-fill mx-3" style="font-size: 1.5rem;"></i></a>
+                        <a href=""><i id="${ButtonModifier}" class="bi bi-pencil-fill mx-3" style="font-size: 1.5rem;" data-bs-toggle="modal" data-bs-target="#add"></i></a>
                         <a href=""><i id="${ButtonSupprimer}" class="bi bi-trash-fill mx-3" style="font-size: 1.5rem; color: #ce0033;"></i></a>
                         <a href=""><i id="${ButtonDetail}" class="bi bi-eye-fill mx-3" style="font-size: 2rem; color: primary;"></i></a>
                     </div> 
