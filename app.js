@@ -10,7 +10,7 @@ const identifiant=document.querySelector('#id-datas');
 // console.log(containerCarte);
 
 const photoApp=document.querySelector('#photo-app');
-console.log(photoApp);
+// console.log(photoApp);
 
 //Recuperation dom du formulaire
 const nomApp=document.querySelector('.nom-app');
@@ -67,12 +67,15 @@ formulaireAddApp.addEventListener('submit',(e)=>{
         biographieApp.classList.add('error');
         // displayError.textContent="La biographie ne doit pas etre vide"
         displayError.style.color="#ce0033";  
+    }else if(photoApp.value.trim()===""){
+        photoApp.classList.add('error');
+        displayError.style.color="#ce0033"; 
     }else if(identifiant.value==''){
         const newApprenants={
             id:Date.now(),
             nom:nomApp.value,
             prenoms:prenomApp.value,
-            // photo:photoApp.value,
+            photo:photoApp.files[0].name,
             niveau:niveauApp.value,
             biographie:biographieApp.value,
             competenceMaquette:competenceMaquette.value,
@@ -87,6 +90,7 @@ formulaireAddApp.addEventListener('submit',(e)=>{
         createCarte(newApprenants);
         ApprenantsData.push(newApprenants);
         console.log(ApprenantsData);
+        removeChamp();
        
         // console.log(identifiant.value);
     }else{
@@ -94,6 +98,7 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             id:Date.now(),
             nom:nomApp.value,
             prenoms:prenomApp.value,
+            photo:photoApp.files[0].name,
             niveau:niveauApp.value,
             biographie:biographieApp.value,
             competenceMaquette:competenceMaquette.value,
@@ -112,11 +117,8 @@ formulaireAddApp.addEventListener('submit',(e)=>{
         })
         identifiant.value='';
         console.log(ApprenantsData);
+        removeChamp();
     }
-    removeChamp();
-    
-    
-   
 })
 
 
@@ -160,8 +162,9 @@ function createCarte(carte){
     `
         <div class="carte-resulat-apprenant" id="${idCarte}">
             <div class="avatar-app">
-                <img src="images/image-app.png" alt="" style="height: 70%; width: 70%;">
               
+                <img src="./images/${carte.photo}" alt="" style="height: 70%; width: 70%; border-radius:15px">
+
             </div>
             <div class="column">
                 <div class="nom-prenom-app">
@@ -206,6 +209,7 @@ function createCarte(carte){
         identifiant.value=indexElement;
         nomApp.value=ApprenantsData[indexElement].nom;
         prenomApp.value=ApprenantsData[indexElement].prenoms;
+        // photoApp.value.name=ApprenantsData[indexElement].photo;
         niveauApp.value=ApprenantsData[indexElement].niveau;
         biographieApp.value=ApprenantsData[indexElement].biographie;
         competenceMaquette.value=ApprenantsData[indexElement].competenceMaquette;
@@ -258,6 +262,7 @@ function removeChamp(){
     nomApp.value="";
     prenomApp.value="";
     niveauApp.value="";
+    photoApp.value="";
     biographieApp.value="";
     competenceMaquette.value="";
     comptenceUserStatiqueAdaptable.value="";

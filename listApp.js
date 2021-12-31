@@ -8,6 +8,7 @@ const listeApprenant=document.querySelector('.charge-liste-apprenanat');
 const identifiant=document.querySelector('#id-datas');
 // console.log(identifiant);
 // console.log(containerCarte);
+const photoApp=document.querySelector('#photo-app');
 
 //Recuperation dom du formulaire
 const nomApp=document.querySelector('.nom-app');
@@ -49,8 +50,7 @@ function createListeApprenant(list){
     `
         <div class="carte-list-apprenant mb-5 mx-3" id="">
             <div class="avatar-app">
-                <img src="images/image-app.png" alt="" style="height: 60%; width: 60%;">
-                
+                <img src="./images/${list.photo}" alt="" style="height: 60%; width: 60%; border-radius:15px"> 
             </div>
             <div class="column">
                 <div class="nom-prenom-app">
@@ -83,8 +83,10 @@ function createListeApprenant(list){
         })
         .then((respons)=>respons.json())
         .then((data)=>{
-            console.log(data);
+            // console.log(data);
+            location.reload();
         })
+        
     })
 
     //Update btn
@@ -110,6 +112,7 @@ function createListeApprenant(list){
             identifiant.value=list.id;
             nomApp.value=list.nom
             prenomApp.value=list.prenoms;
+            // photoApp.value=list.photo;
             niveauApp.value=list.niveau;
             biographieApp.value=list.biographie;
             competenceMaquette.value=list.competenceMaquette;
@@ -137,6 +140,7 @@ function createListeApprenant(list){
                                 "nom":nomApp.value,
                                 "prenoms":prenomApp.value,
                                 "niveau":niveauApp.value,
+                                // "photo":photoApp.value,
                                 "biographie":biographieApp.value,
                                 "competenceMaquette":competenceMaquette.value,
                                 "competenceUserInterface":comptenceUserStatiqueAdaptable.value,
@@ -150,6 +154,7 @@ function createListeApprenant(list){
         })
         .then((response)=>response.json())
         .then((data)=>{
+            window.location.reload();
             removeChamp();
         })
     })
@@ -182,6 +187,7 @@ function removeChamp(){
     prenomApp.value="";
     niveauApp.value="";
     biographieApp.value="";
+    // photoApp.value="";
     competenceMaquette.value="";
     comptenceUserStatiqueAdaptable.value="";
     comptenceUserDynamique.value="";
