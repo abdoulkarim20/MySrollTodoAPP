@@ -9,6 +9,9 @@ const identifiant=document.querySelector('#id-datas');
 // console.log(identifiant);
 // console.log(containerCarte);
 
+const photoApp=document.querySelector('#photo-app');
+console.log(photoApp);
+
 //Recuperation dom du formulaire
 const nomApp=document.querySelector('.nom-app');
 const prenomApp=document.querySelector('.prenom-app ');
@@ -69,6 +72,7 @@ formulaireAddApp.addEventListener('submit',(e)=>{
             id:Date.now(),
             nom:nomApp.value,
             prenoms:prenomApp.value,
+            // photo:photoApp.value,
             niveau:niveauApp.value,
             biographie:biographieApp.value,
             competenceMaquette:competenceMaquette.value,
@@ -157,7 +161,7 @@ function createCarte(carte){
         <div class="carte-resulat-apprenant" id="${idCarte}">
             <div class="avatar-app">
                 <img src="images/image-app.png" alt="" style="height: 70%; width: 70%;">
-                
+              
             </div>
             <div class="column">
                 <div class="nom-prenom-app">
