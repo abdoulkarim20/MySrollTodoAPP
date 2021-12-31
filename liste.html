@@ -25,143 +25,205 @@
        
     </div>
   
-  <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            
+            <h4 class="text-center">Modifier l'apprenant</h4>
+            <form action="">
+                <input type="hidden"  name="id" id="id-datas">
+                <div class="form-floating mb-3">
+                    <input type="text" class="nom-app form-control" name="nom" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Entrez le nom de l'apprenant</label>
+                    <div class="error-message"></div>
+                </div>
+                <div class="form-floating mb-3">
+                    <input type="text" class="prenom-app form-control" name="prenom" id="floatingInput" placeholder="name@example.com">
+                    <label for="floatingInput">Entrez le prenom de l'apprenant</label>
+                    <div class="error-message"></div>
+                </div>
+                <!-- <div class="mb-3">
+                    <input class="form-control form-control-lg" id="photo-app" name="photo" type="file">
+                </div> -->
+    
+                <select class="les-niveau-app form-select mb-3" aria-label="Default select example">
+                    <option value="">Selectionnez un niveau d'appreciation</option>
+                    <option value="Tres Bien">Tres Bien</option>
+                    <option value="Bien">Bien</option>
+                    <option value="Assez Bien">Assez Bien</option>
+                    <div class="error-message"></div>
+                </select>
+                <div class="form-floating mb-3">
+                    <textarea class="bioApp form-control" name="biographie" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Biographie de l'apprenant</label>
+                    <div class="error-message"></div>
+                </div>
+                <div class="text-center mb-3">
+                    <p id="mot-saisie">Contenu saisi <span id="progressChar">00</span>/130</p>
+                    <p id="restant-saisie"></p>
+                </div>
+                <div class="row">
+                    <div style="width: 50%;">
+                        <select class="la-comptence-mquette form-select mb-3" >
+                            <option value="">Maquetter une application</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>
+                    <div style="width: 50%;">
+                        <select class="la-comptence-user-statique form-select mb-3" >
+                            <option value="">Réaliser une interface utilisateur web statique et adaptable</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>   
+                    <div style="width: 50%;">
+                        <select class="la-comptence-user-dynamique form-select mb-3" >
+                            <option value="">Développer une interface utilisateur web dynamique</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>
+                    <div style="width: 50%;">
+                        <select class="la-comptence-user-gestion-contenu form-select mb-3" >
+                            <option value="">Réaliser une interface utilisateur avec une solution de gestion de contenu ou e- commerce</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>   
+                    <div style="width: 50%;">
+                        <select class="la-comptence-cree-db form-select mb-3" >
+                            <option value="">Créer une base de données</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>
+                    <div style="width: 50%;">
+                        <select class="la-comptence-composant-accees form-select mb-3" >
+                            <option value="">Développer les composants d’accès aux données</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>   
+                    <div style="width: 50%;">
+                        <select class="la-comptence-developper-backend form-select mb-3" >
+                            <option value="">Développer la partie back-end d’une application web ou web mobile</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>
+                    <div style="width: 50%;">
+                        <select class="la-comptence-composant-application form-select mb-3" >
+                            <option value="">Elaborer et mettre en œuvre des composants dans une application de gestion de contenu ou e-commerce</option>
+                            <option value="Débutant">Débutant</option>
+                            <option value="Intermediaire">Intermediaire</option>
+                            <option value="Avancée">Avancée</option>
+                            <option value="Expert">Expert</option>
+                            <div class="error-message"></div>
+                        </select>
+                    </div>                  
+                </div>
+                <div class="text-center mb-3">
+                    <button type="submit" class="ajouter-app btn btn-success">Enregistrer</button>
+                </div>
+            </form>
+            </div>
+            <!-- <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+            </div> -->
         </div>
-        <div class="modal-body">
-          
-          <h4 class="text-center">Modifier l'apprenant</h4>
-          <form action="">
-              <input type="hidden"  name="id" id="id-datas">
-              <div class="form-floating mb-3">
-                  <input type="text" class="nom-app form-control" name="nom" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Entrez le nom de l'apprenant</label>
-                  <div class="error-message"></div>
-              </div>
-              <div class="form-floating mb-3">
-                  <input type="text" class="prenom-app form-control" name="prenom" id="floatingInput" placeholder="name@example.com">
-                  <label for="floatingInput">Entrez le prenom de l'apprenant</label>
-                  <div class="error-message"></div>
-              </div>
-              <!-- <div class="mb-3">
-                <input class="form-control form-control-lg" id="photo-app" name="photo" type="file">
-              </div> -->
-  
-              <select class="les-niveau-app form-select mb-3" aria-label="Default select example">
-                  <option value="">Selectionnez un niveau d'appreciation</option>
-                  <option value="Tres Bien">Tres Bien</option>
-                  <option value="Bien">Bien</option>
-                  <option value="Assez Bien">Assez Bien</option>
-                  <div class="error-message"></div>
-              </select>
-              <div class="form-floating mb-3">
-                  <textarea class="bioApp form-control" name="biographie" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                  <label for="floatingTextarea2">Biographie de l'apprenant</label>
-                  <div class="error-message"></div>
-              </div>
-              <div class="text-center mb-3">
-                  <p id="mot-saisie">Contenu saisi <span id="progressChar">00</span>/130</p>
-                  <p id="restant-saisie"></p>
-              </div>
-              <div class="row">
-                  <div style="width: 50%;">
-                      <select class="la-comptence-mquette form-select mb-3" >
-                          <option value="">Maquetter une application</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>
-                  <div style="width: 50%;">
-                      <select class="la-comptence-user-statique form-select mb-3" >
-                          <option value="">Réaliser une interface utilisateur web statique et adaptable</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>   
-                  <div style="width: 50%;">
-                      <select class="la-comptence-user-dynamique form-select mb-3" >
-                          <option value="">Développer une interface utilisateur web dynamique</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>
-                  <div style="width: 50%;">
-                      <select class="la-comptence-user-gestion-contenu form-select mb-3" >
-                          <option value="">Réaliser une interface utilisateur avec une solution de gestion de contenu ou e- commerce</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>   
-                  <div style="width: 50%;">
-                      <select class="la-comptence-cree-db form-select mb-3" >
-                          <option value="">Créer une base de données</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>
-                  <div style="width: 50%;">
-                      <select class="la-comptence-composant-accees form-select mb-3" >
-                          <option value="">Développer les composants d’accès aux données</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>   
-                  <div style="width: 50%;">
-                      <select class="la-comptence-developper-backend form-select mb-3" >
-                          <option value="">Développer la partie back-end d’une application web ou web mobile</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>
-                  <div style="width: 50%;">
-                      <select class="la-comptence-composant-application form-select mb-3" >
-                          <option value="">Elaborer et mettre en œuvre des composants dans une application de gestion de contenu ou e-commerce</option>
-                          <option value="Débutant">Débutant</option>
-                          <option value="Intermediaire">Intermediaire</option>
-                          <option value="Avancée">Avancée</option>
-                          <option value="Expert">Expert</option>
-                          <div class="error-message"></div>
-                      </select>
-                  </div>                  
-              </div>
-              <div class="text-center mb-3">
-                  <button type="submit" class="ajouter-app btn btn-success">Enregistrer</button>
-              </div>
-          </form>
         </div>
-        <!-- <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div> -->
-      </div>
     </div>
-  </div>
 
+    
+
+    <div class="modal fade" id="detailApp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="text-center">Detail sur l'etudiant</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            <div class="container">
+                <div class="case-detail">
+                    <div id="image-app"></div>
+                    <div class="info-app mx-2">
+                        <h4 class="app-name"></h4>
+                        <h4 class="app-niveau">Niveau:</h4>
+                        <h5>Biographie</h5>
+                        <textarea name="" id="" cols="23" rows="5" readonly class="champ-bio"></textarea>
+                    </div> 
+                </div>
+                <div class="statistiq mt-2">
+                    <h4 class="text-center">Statistiques</h4>
+                    <div class="case-compe">
+                        <h5>maquettage UX/UI</h5>
+                        <div class="progress">
+                            <div class="progress-bar">
+                                25%  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <h5>User interface</h5>
+                        <div class="progress">
+                            <div class="progress-bar">
+                                25%  
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <h5>Base de données</h5>
+                        <div class="progress">
+                            <div class="progress-bar">
+                                25%  
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    
+
+
+   
+        
+  
 
 
     <script src="bootstrap/js/bootstrap.min.js"></script>

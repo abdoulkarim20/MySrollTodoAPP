@@ -59,7 +59,7 @@ function createListeApprenant(list){
                     <div class="btn-delet-edit">
                         <a href=""><i id="${ButtonModifier}" class="bi bi-pencil-fill mx-3" style="font-size: 1.5rem;" data-bs-toggle="modal" data-bs-target="#add"></i></a>
                         <a href=""><i id="${ButtonSupprimer}" class="bi bi-trash-fill mx-3" style="font-size: 1.5rem; color: #ce0033;"></i></a>
-                        <a href=""><i id="${ButtonDetail}" class="bi bi-eye-fill mx-3" style="font-size: 2rem; color: primary;"></i></a>
+                        <a href=""><i id="${ButtonDetail}" class="bi bi-eye-fill mx-3" style="font-size: 2rem; color: primary;"data-bs-toggle="modal" data-bs-target="#detailApp"></i></a>
                     </div> 
                 </div>
                 <p>${list.biographie}</p>
@@ -158,12 +158,40 @@ function createListeApprenant(list){
             removeChamp();
         })
     })
-    
-    // console.log(list.nom, list.prenoms, list.id ,list.niveau, list.biographie, list.competenceMaquette)
-    // btnModifier.addEventListener('click',(e)=>{
-    //     e.preventDefault();
-    
-    // });
+
+    //La partie detail
+    const btnDetail=document.querySelector('#'+ButtonDetail);
+    btnDetail.addEventListener('click',(e)=>{
+        e.preventDefault();
+        //Je recupere d'abord l'element complet a modifier
+        fetch(URL_API+"?id=eq."+list.id,{
+            method:"GET",
+            headers:{
+                apikey:API_KEY,
+                "Content-Type": "application/json",
+                Prefer:"return=representation"
+            }
+        })
+        .then((response)=>response.json())
+        .then((data)=>{
+            const champNomPrenom=document.querySelector('.app-name');
+            const champNiveau=document.querySelector('.app-niveau');
+            const imageApp=document.querySelector('#image-app');
+            const chmpBio=document.querySelector('.champ-bio');
+            
+            if(list.niveau==="Bien"){
+                champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                champNiveau.innerHTML=list.niveau;
+                imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                chmpBio.innerHTML=list.biographie;
+            }else if(list.niveau==="Assez Bien"){
+                champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                champNiveau.innerHTML="Niveau: "+list.niveau;
+                imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                chmpBio.innerHTML=list.biographie;
+            }
+        })
+    })   
 }
 
 window.addEventListener('DOMContentLoaded',(e)=>{

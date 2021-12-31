@@ -61,3 +61,32 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
+
+.case-detail{
+    display: flex;
+    flex-direction: row;
+}
+.info-app{
+    display: flex;
+    flex-direction: column;
+}
+.champ-bio{
+    border-color: transparent;
+}
+.progress{
+    height: 20px;
+    border-radius: 10px;
+    width: 50%;
+}
+.progress-bar{
+    border-radius: 10px;
+    display: flex;
+    width: 30%;
+    align-items: center;
+    background: yellowgreen;
+}
+.case-compe{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
