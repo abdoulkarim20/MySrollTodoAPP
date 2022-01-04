@@ -163,7 +163,7 @@ function createCarte(carte){
         <div class="carte-resulat-apprenant" id="${idCarte}">
             <div class="avatar-app">
               
-                <img src="./images/${carte.photo}" alt="" style="height: 70%; width: 70%; border-radius:15px">
+                <img src="./images/${carte.photo}" alt="" style="height: 70%; width: 70%; border-radius:100%">
 
             </div>
             <div class="column">
@@ -220,7 +220,7 @@ function createCarte(carte){
         comptenceComposantAcces.value=ApprenantsData[indexElement].competenceAccesAuxDonnee;
         comptenceDevlopperBackend.value=ApprenantsData[indexElement].competenceDevelopperBkend;
         comptenceComposantAplication.value=ApprenantsData[indexElement].competenceEnApplicationContenu;
-        console.log(indexElement);
+        // console.log(indexElement);
     })
 
 }

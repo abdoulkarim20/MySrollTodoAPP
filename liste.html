@@ -10,6 +10,21 @@
     <title>La liste des apprenants</title>
 </head>
 <body>
+    <nav class="navbar navbar-expand-lg" style="background-color: #ce0033;">
+        <div class="container-fluid">
+          <a class="navbar-brand text-white" href="index.html"><h1>SIMPLON SCHOOL-APP</h1></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active text-white" aria-current="page" href="liste.html">La liste des apprenants</a>
+              <!-- <a href="liste.html" class="btn btn-primary mt-5"></a> -->
+            </div>
+          </div>
+        </div>
+    </nav>
+    <!-- Container apprenant -->
     <div class="container-fluid mt-5">
         <div class="row">
             <div class="col-12">
@@ -20,11 +35,12 @@
             </div>
         </div>
     </div>
+    <!-- Fin container apprenant -->
     
     <div class="form-container col-md-7 col-lg-7 col-xl-7 col-sm-12">
        
     </div>
-  
+    <!-- Modal modfication -->
     <div class="modal fade" id="add" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
@@ -58,15 +74,6 @@
                     <option value="Assez Bien">Assez Bien</option>
                     <div class="error-message"></div>
                 </select>
-                <div class="form-floating mb-3">
-                    <textarea class="bioApp form-control" name="biographie" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                    <label for="floatingTextarea2">Biographie de l'apprenant</label>
-                    <div class="error-message"></div>
-                </div>
-                <div class="text-center mb-3">
-                    <p id="mot-saisie">Contenu saisi <span id="progressChar">00</span>/130</p>
-                    <p id="restant-saisie"></p>
-                </div>
                 <div class="row">
                     <div style="width: 50%;">
                         <select class="la-comptence-mquette form-select mb-3" >
@@ -149,6 +156,15 @@
                         </select>
                     </div>                  
                 </div>
+                <div class="form-floating mb-3">
+                    <textarea class="bioApp form-control" name="biographie" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Biographie de l'apprenant</label>
+                    <div class="error-message"></div>
+                </div>
+                <div class="text-center mb-3">
+                    <p id="mot-saisie">Contenu saisi <span id="progressChar">00</span>/130</p>
+                    <p id="restant-saisie"></p>
+                </div>
                 <div class="text-center mb-3">
                     <button type="submit" class="ajouter-app btn btn-success">Enregistrer</button>
                 </div>
@@ -161,14 +177,14 @@
         </div>
         </div>
     </div>
+    <!-- Fin modification -->
 
-    
-
+    <!-- Modal statistique -->
     <div class="modal fade" id="detailApp" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="text-center">Detail sur l'etudiant</h4>
+                <h4 class="text-center">Detail sur l'Etudiant</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -185,26 +201,66 @@
                 <div class="statistiq mt-2">
                     <h4 class="text-center">Statistiques</h4>
                     <div class="case-compe">
-                        <h5>maquettage UX/UI</h5>
+                        <p>Maquettage UX/UI</p>
                         <div class="progress">
-                            <div class="progress-bar">
-                                25%  
+                            <div class="progress-bar" id="maquette">
+                                
                             </div>
                         </div>
                     </div>
                     <div class="case-compe">
-                        <h5>User interface</h5>
+                        <p>UI Web Statique</p>
                         <div class="progress">
-                            <div class="progress-bar">
-                                25%  
+                            <div class="progress-bar" id="userInterfaceStatique">
+                                
                             </div>
                         </div>
                     </div>
                     <div class="case-compe">
-                        <h5>Base de données</h5>
+                        <p>UI Web Dynamique</p>
                         <div class="progress">
-                            <div class="progress-bar">
-                                25%  
+                            <div class="progress-bar" id="interface-dynamique">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <p>Base de données</p>
+                        <div class="progress">
+                            <div class="progress-bar" id="gestionBD">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <p>Back-End Developper</p>
+                        <div class="progress">
+                            <div class="progress-bar" id="developper-back-end">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <p>Gestion Contenu</p>
+                        <div class="progress">
+                            <div class="progress-bar" id="gestionContenu">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <p>Developper CAD</p>
+                        <div class="progress">
+                            <div class="progress-bar" id="composant-access-donnees">
+                                
+                            </div>
+                        </div>
+                    </div>
+                    <div class="case-compe">
+                        <p>Gestion e-Commerce</p>
+                        <div class="progress">
+                            <div class="progress-bar" id="gestion-e-commerce">
+                                
                             </div>
                         </div>
                     </div>
@@ -215,16 +271,7 @@
         </div>
         </div>
     </div>
-
-
-
-    
-
-
-   
-        
-  
-
+    <!-- Fin modal statistique -->
 
     <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="listApp.js"></script>  
