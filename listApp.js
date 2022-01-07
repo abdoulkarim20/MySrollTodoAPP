@@ -38,6 +38,20 @@ const comptenceComposantAcces=document.querySelector('.la-comptence-composant-ac
 const comptenceDevlopperBackend=document.querySelector('.la-comptence-developper-backend');
 const comptenceComposantAplication=document.querySelector('.la-comptence-composant-application');
 //esseye
+//Dom statistique
+const champNomPrenom=document.querySelector('.app-name');
+const champNiveau=document.querySelector('.app-niveau');
+const imageApp=document.querySelector('#image-app');
+const chmpBio=document.querySelector('.champ-bio');
+const maqute=document.querySelector('#maquette');
+const progressBar=document.querySelectorAll('.progress-bar');
+const userIterfaceStic=document.querySelector('#userInterfaceStatique');
+const prgressGestionContenu=document.querySelector('#gestionContenu');
+const progressBd=document.querySelector('#gestionBD');
+const prgressEcommerce=document.querySelector('#gestion-e-commerce');
+const progressBackend=document.querySelector('#developper-back-end');
+const progressComposantAcceesDonnees=document.querySelector('#composant-access-donnees');
+const progressUserInterfaceDynamique=document.querySelector('#interface-dynamique');
 
 function createListeApprenant(list){
 
@@ -174,21 +188,6 @@ function createListeApprenant(list){
         })
         .then((response)=>response.json())
         .then((data)=>{
-            const champNomPrenom=document.querySelector('.app-name');
-            const champNiveau=document.querySelector('.app-niveau');
-            const imageApp=document.querySelector('#image-app');
-            const chmpBio=document.querySelector('.champ-bio');
-            const maqute=document.querySelector('#maquette');
-            const progressBar=document.querySelectorAll('.progress-bar');
-            const userIterfaceStic=document.querySelector('#userInterfaceStatique');
-            const prgressGestionContenu=document.querySelector('#gestionContenu');
-            const progressBd=document.querySelector('#gestionBD');
-            const prgressEcommerce=document.querySelector('#gestion-e-commerce');
-            const progressBackend=document.querySelector('#developper-back-end');
-            const progressComposantAcceesDonnees=document.querySelector('#composant-access-donnees');
-            const progressUserInterfaceDynamique=document.querySelector('#interface-dynamique');
-            // console.log(progressBar);
-            // const UserInterfaceStatuque=document.querySelector('#user-inerface-statique');
             const gestionMauette=list.competenceMaquette;
             switch(gestionMauette){
                 case "Débutant":
@@ -295,252 +294,300 @@ function createListeApprenant(list){
                     chmpBio.innerHTML=list.biographie;
                     userIterfaceStic.classList.add('deafult')
             }
-            // const gestionContenu=list.competenceGestionContenu;
-            // switch(gestionContenu){
-            //     case "Débutant":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressGestionContenu.classList.add('debutatn');
-            //         // userIterfaceStic.classList.add('debutatn');
-            //     break;
-            //     case "Intermediaire":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressGestionContenu.classList.add('intermediare')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Avancée":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressGestionContenu.classList.add('avance')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Expert":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressGestionContenu.classList.add('expert')
-            //         // userIterfaceStic.classList.add('intermediare');deafult
-            //     break;
-            //     default:
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressGestionContenu.classList.add('deafult')
-            // }
-            // const gestionBaseDoneees=list.competenceCreationDb;
-            // switch(gestionBaseDoneees){
-            //     case "Débutant":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBd.classList.add('debutatn');
-            //         // userIterfaceStic.classList.add('debutatn');
-            //     break;
-            //     case "Intermediaire":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBd.classList.add('intermediare')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Avancée":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBd.classList.add('avance')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Expert":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBd.classList.add('expert')
-            //         // userIterfaceStic.classList.add('intermediare');deafult
-            //     break;
-            //     default:
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBd.classList.add('deafult')
-            // }
-            // const gestionEcommerce=list.competenceEnApplicationContenu;
-            // switch(gestionEcommerce){
-            //     case "Débutant":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressEcommerce.classList.add('debutatn');
-            //         // userIterfaceStic.classList.add('debutatn');
-            //     break;
-            //     case "Intermediaire":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressEcommerce.classList.add('intermediare')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Avancée":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressEcommerce.classList.add('avance')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Expert":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressEcommerce.classList.add('expert')
-            //         // userIterfaceStic.classList.add('intermediare');deafult
-            //     break;
-            //     default:
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         prgressEcommerce.classList.add('deafult')
-            // }
-            // const gestionBackend=list.competenceDevelopperBkend;
-            // switch(gestionEcommerce){
-            //     case "Débutant":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBackend.classList.add('debutatn');
-            //         // userIterfaceStic.classList.add('debutatn');
-            //     break;
-            //     case "Intermediaire":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBackend.classList.add('intermediare')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Avancée":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBackend.classList.add('avance')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Expert":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBackend.classList.add('expert')
-            //         // userIterfaceStic.classList.add('intermediare');deafult
-            //     break;
-            //     default:
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressBackend.classList.add('deafult')
-            // }
-            // const gestionComposantAcessDonnee=list.competenceAccesAuxDonnee;
-            // switch(gestionEcommerce){
-            //     case "Débutant":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressComposantAcceesDonnees.classList.add('debutatn');
-            //         // userIterfaceStic.classList.add('debutatn');
-            //     break;
-            //     case "Intermediaire":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressComposantAcceesDonnees.classList.add('intermediare')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Avancée":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressComposantAcceesDonnees.classList.add('avance')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Expert":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressComposantAcceesDonnees.classList.add('expert')
-            //         // userIterfaceStic.classList.add('intermediare');deafult
-            //     break;
-            //     default:
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressComposantAcceesDonnees.classList.add('deafult')
-            // }
-            // const gestionUserInterfaceDynamique=list.competenceUserInterfaceDynamique;
-            // switch(gestionEcommerce){
-            //     case "Débutant":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressUserInterfaceDynamique.classList.add('debutatn');
-            //         // userIterfaceStic.classList.add('debutatn');
-            //     break;
-            //     case "Intermediaire":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressUserInterfaceDynamique.classList.add('intermediare')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Avancée":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressUserInterfaceDynamique.classList.add('avance')
-            //         // userIterfaceStic.classList.add('intermediare');
-            //     break;
-            //     case "Expert":
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressUserInterfaceDynamique.classList.add('expert')
-            //         // userIterfaceStic.classList.add('intermediare');deafult
-            //     break;
-            //     default:
-            //         champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-            //         champNiveau.innerHTML="Niveau: "+list.niveau;
-            //         imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-            //         chmpBio.innerHTML=list.biographie;
-            //         progressUserInterfaceDynamique.classList.add('deafult')
-            // }
+            const gestionContenu=list.competenceGestionContenu;
+            switch(gestionContenu){
+                case "Débutant":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressGestionContenu.classList.add('debutatn');
+                    prgressGestionContenu.classList.remove('intermediare')
+                    prgressGestionContenu.classList.remove('avance')
+                    prgressGestionContenu.classList.remove('expert')
+                break;
+                case "Intermediaire":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressGestionContenu.classList.add('intermediare');
+                    prgressGestionContenu.classList.remove('debutatn')
+                    prgressGestionContenu.classList.remove('avance')
+                    prgressGestionContenu.classList.remove('expert')
+                break;
+                case "Avancée":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressGestionContenu.classList.remove('intermediare');
+                    prgressGestionContenu.classList.remove('debutatn')
+                    prgressGestionContenu.classList.add('avance')
+                    prgressGestionContenu.classList.remove('expert')
+                break;
+                case "Expert":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressGestionContenu.classList.remove('intermediare');
+                    prgressGestionContenu.classList.remove('debutatn')
+                    prgressGestionContenu.classList.remove('avance')
+                    prgressGestionContenu.classList.add('expert')
+                break;
+                default:
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressGestionContenu.classList.add('deafult')
+            }
+            const gestionBaseDoneees=list.competenceCreationDb;
+            switch(gestionBaseDoneees){
+                case "Débutant":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBd.classList.add('debutatn');
+                    progressBd.classList.remove('intermediare')
+                    progressBd.classList.remove('avance')
+                    progressBd.classList.remove('expert')
+                break;
+                case "Intermediaire":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBd.classList.remove('debutatn');
+                    progressBd.classList.add('intermediare')
+                    progressBd.classList.remove('avance')
+                    progressBd.classList.remove('expert')
+                break;
+                case "Avancée":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBd.classList.remove('debutatn');
+                    progressBd.classList.remove('intermediare')
+                    progressBd.classList.add('avance')
+                    progressBd.classList.remove('expert')
+                break;
+                case "Expert":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBd.classList.remove('debutatn');
+                    progressBd.classList.remove('intermediare')
+                    progressBd.classList.remove('avance')
+                    progressBd.classList.add('expert')
+                break;
+                default:
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBd.classList.add('deafult')
+            }
+            const gestionEcommerce=list.competenceEnApplicationContenu;
+            switch(gestionEcommerce){
+                case "Débutant":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressEcommerce.classList.add('debutatn');
+                    prgressEcommerce.classList.remove('intermediare')
+                    prgressEcommerce.classList.remove('avance')
+                    prgressEcommerce.classList.remove('expert')
+                break;
+                case "Intermediaire":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressEcommerce.classList.remove('debutatn');
+                    prgressEcommerce.classList.add('intermediare')
+                    prgressEcommerce.classList.remove('avance')
+                    prgressEcommerce.classList.remove('expert')    
+                break;
+                case "Avancée":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressEcommerce.classList.remove('debutatn');
+                    prgressEcommerce.classList.remove('intermediare')
+                    prgressEcommerce.classList.add('avance')
+                    prgressEcommerce.classList.remove('expert')
+                break;
+                case "Expert":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressEcommerce.classList.remove('debutatn');
+                    prgressEcommerce.classList.remove('intermediare')
+                    prgressEcommerce.classList.remove('avance')
+                    prgressEcommerce.classList.add('expert')
+                break;
+                default:
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    prgressEcommerce.classList.add('deafult')
+            }
+            const gestionBackend=list.competenceDevelopperBkend;
+            switch(gestionBackend){
+                case "Débutant":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBackend.classList.add('debutatn');
+                    progressBackend.classList.remove('intermediare')
+                    progressBackend.classList.remove('avance')
+                    progressBackend.classList.remove('expert')
+                break;
+                case "Intermediaire":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBackend.classList.remove('debutatn');
+                    progressBackend.classList.add('intermediare')
+                    progressBackend.classList.remove('avance')
+                    progressBackend.classList.remove('expert')
+                break;
+                case "Avancée":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBackend.classList.remove('debutatn');
+                    progressBackend.classList.remove('intermediare')
+                    progressBackend.classList.add('avance')
+                    progressBackend.classList.remove('expert')
+                break;
+                case "Expert":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBackend.classList.remove('debutatn');
+                    progressBackend.classList.remove('intermediare')
+                    progressBackend.classList.remove('avance')
+                    progressBackend.classList.add('expert')
+                break;
+                default:
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressBackend.classList.add('deafult')
+            }
+            const gestionComposantAcessDonnee=list.competenceAccesAuxDonnee;
+            switch(gestionComposantAcessDonnee){
+                case "Débutant":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressComposantAcceesDonnees.classList.add('debutatn');
+                    progressComposantAcceesDonnees.classList.remove('intermediare')
+                    progressComposantAcceesDonnees.classList.remove('avance')
+                    progressComposantAcceesDonnees.classList.remove('expert')
+                break;
+                case "Intermediaire":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressComposantAcceesDonnees.classList.remove('debutatn');
+                    progressComposantAcceesDonnees.classList.add('intermediare')
+                    progressComposantAcceesDonnees.classList.remove('avance')
+                    progressComposantAcceesDonnees.classList.remove('expert')
+                break;
+                case "Avancée":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressComposantAcceesDonnees.classList.remove('debutatn');
+                    progressComposantAcceesDonnees.classList.remove('intermediare')
+                    progressComposantAcceesDonnees.classList.add('avance')
+                    progressComposantAcceesDonnees.classList.remove('expert')
+                break;
+                case "Expert":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressComposantAcceesDonnees.classList.remove('debutatn');
+                    progressComposantAcceesDonnees.classList.remove('intermediare')
+                    progressComposantAcceesDonnees.classList.remove('avance')
+                    progressComposantAcceesDonnees.classList.add('expert')
+                break;
+                default:
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressComposantAcceesDonnees.classList.add('deafult')
+            }
+            const gestionUserInterfaceDynamique=list.competenceUserInterfaceDynamique;
+            switch(gestionUserInterfaceDynamique){
+                case "Débutant":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressUserInterfaceDynamique.classList.add('debutatn');
+                    progressUserInterfaceDynamique.classList.remove('intermediare')
+                    progressUserInterfaceDynamique.classList.remove('avance')
+                    progressUserInterfaceDynamique.classList.remove('expert')
+                break;
+                case "Intermediaire":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressUserInterfaceDynamique.classList.remove('debutatn');
+                    progressUserInterfaceDynamique.classList.add('intermediare')
+                    progressUserInterfaceDynamique.classList.remove('avance')
+                    progressUserInterfaceDynamique.classList.remove('expert')
+                break;
+                case "Avancée":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressUserInterfaceDynamique.classList.remove('debutatn');
+                    progressUserInterfaceDynamique.classList.remove('intermediare')
+                    progressUserInterfaceDynamique.classList.add('avance')
+                    progressUserInterfaceDynamique.classList.remove('expert')
+                break;
+                case "Expert":
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressUserInterfaceDynamique.classList.remove('debutatn');
+                    progressUserInterfaceDynamique.classList.remove('intermediare')
+                    progressUserInterfaceDynamique.classList.remove('avance')
+                    progressUserInterfaceDynamique.classList.add('expert')
+                break;
+                default:
+                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                    champNiveau.innerHTML="Niveau: "+list.niveau;
+                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                    chmpBio.innerHTML=list.biographie;
+                    progressUserInterfaceDynamique.classList.add('deafult')
+            }
    
         })
     })   
