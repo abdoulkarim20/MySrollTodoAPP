@@ -199,6 +199,7 @@ function createListeApprenant(list){
                     maqute.classList.remove('intermediare')
                     maqute.classList.remove('avance')
                     maqute.classList.remove('expert')
+                    maqute.classList.remove('deafult')
                     // userIterfaceStic.classList.add('debutatn');
                 break;
                 case "Intermediaire":
@@ -210,6 +211,7 @@ function createListeApprenant(list){
                     maqute.classList.add('intermediare')
                     maqute.classList.remove('avance')
                     maqute.classList.remove('expert')
+                    maqute.classList.remove('deafult')
                     // userIterfaceStic.classList.add('intermediare');
                 break;
                 case "Avancée":
@@ -221,6 +223,7 @@ function createListeApprenant(list){
                     maqute.classList.remove('intermediare')
                     maqute.classList.add('avance')
                     maqute.classList.remove('expert')
+                    maqute.classList.remove('deafult')
                     // userIterfaceStic.classList.add('intermediare');
                 break;
                 case "Expert":
@@ -232,6 +235,7 @@ function createListeApprenant(list){
                     maqute.classList.remove('intermediare')
                     maqute.classList.remove('avance')
                     maqute.classList.add('expert')
+                    maqute.classList.remove('deafult')
                     // userIterfaceStic.classList.add('intermediare');deafult
                 break;
                 default:
@@ -252,7 +256,7 @@ function createListeApprenant(list){
                     userIterfaceStic.classList.remove('intermediare')
                     userIterfaceStic.classList.remove('avance')
                     userIterfaceStic.classList.remove('expert')
-                    // userIterfaceStic.classList.add('debutatn');
+                    userIterfaceStic.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -263,7 +267,7 @@ function createListeApprenant(list){
                     userIterfaceStic.classList.add('intermediare')
                     userIterfaceStic.classList.remove('avance')
                     userIterfaceStic.classList.remove('expert')
-                    // userIterfaceStic.classList.add('intermediare');
+                    userIterfaceStic.classList.remove('deafult')
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -274,7 +278,7 @@ function createListeApprenant(list){
                     userIterfaceStic.classList.remove('intermediare')
                     userIterfaceStic.classList.add('avance')
                     userIterfaceStic.classList.remove('expert')
-                    // userIterfaceStic.classList.add('intermediare');
+                    userIterfaceStic.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -285,7 +289,7 @@ function createListeApprenant(list){
                     userIterfaceStic.classList.remove('intermediare')
                     userIterfaceStic.classList.remove('avance')
                     userIterfaceStic.classList.add('expert')
-                    // userIterfaceStic.classList.add('intermediare');deafult
+                    userIterfaceStic.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -305,6 +309,7 @@ function createListeApprenant(list){
                     prgressGestionContenu.classList.remove('intermediare')
                     prgressGestionContenu.classList.remove('avance')
                     prgressGestionContenu.classList.remove('expert')
+                    prgressGestionContenu.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -315,6 +320,7 @@ function createListeApprenant(list){
                     prgressGestionContenu.classList.remove('debutatn')
                     prgressGestionContenu.classList.remove('avance')
                     prgressGestionContenu.classList.remove('expert')
+                    prgressGestionContenu.classList.remove('deafult')
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -325,6 +331,7 @@ function createListeApprenant(list){
                     prgressGestionContenu.classList.remove('debutatn')
                     prgressGestionContenu.classList.add('avance')
                     prgressGestionContenu.classList.remove('expert')
+                    prgressGestionContenu.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -335,6 +342,7 @@ function createListeApprenant(list){
                     prgressGestionContenu.classList.remove('debutatn')
                     prgressGestionContenu.classList.remove('avance')
                     prgressGestionContenu.classList.add('expert')
+                    prgressGestionContenu.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -354,6 +362,7 @@ function createListeApprenant(list){
                     progressBd.classList.remove('intermediare')
                     progressBd.classList.remove('avance')
                     progressBd.classList.remove('expert')
+                    progressBd.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -364,6 +373,7 @@ function createListeApprenant(list){
                     progressBd.classList.add('intermediare')
                     progressBd.classList.remove('avance')
                     progressBd.classList.remove('expert')
+                    progressBd.classList.remove('deafult')
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -374,6 +384,7 @@ function createListeApprenant(list){
                     progressBd.classList.remove('intermediare')
                     progressBd.classList.add('avance')
                     progressBd.classList.remove('expert')
+                    progressBd.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -384,6 +395,7 @@ function createListeApprenant(list){
                     progressBd.classList.remove('intermediare')
                     progressBd.classList.remove('avance')
                     progressBd.classList.add('expert')
+                    progressBd.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -403,6 +415,7 @@ function createListeApprenant(list){
                     prgressEcommerce.classList.remove('intermediare')
                     prgressEcommerce.classList.remove('avance')
                     prgressEcommerce.classList.remove('expert')
+                    prgressEcommerce.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -412,7 +425,8 @@ function createListeApprenant(list){
                     prgressEcommerce.classList.remove('debutatn');
                     prgressEcommerce.classList.add('intermediare')
                     prgressEcommerce.classList.remove('avance')
-                    prgressEcommerce.classList.remove('expert')    
+                    prgressEcommerce.classList.remove('expert')  
+                    prgressEcommerce.classList.remove('deafult')  
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -423,6 +437,7 @@ function createListeApprenant(list){
                     prgressEcommerce.classList.remove('intermediare')
                     prgressEcommerce.classList.add('avance')
                     prgressEcommerce.classList.remove('expert')
+                    prgressEcommerce.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -433,6 +448,7 @@ function createListeApprenant(list){
                     prgressEcommerce.classList.remove('intermediare')
                     prgressEcommerce.classList.remove('avance')
                     prgressEcommerce.classList.add('expert')
+                    prgressEcommerce.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -452,6 +468,7 @@ function createListeApprenant(list){
                     progressBackend.classList.remove('intermediare')
                     progressBackend.classList.remove('avance')
                     progressBackend.classList.remove('expert')
+                    progressBackend.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -462,6 +479,7 @@ function createListeApprenant(list){
                     progressBackend.classList.add('intermediare')
                     progressBackend.classList.remove('avance')
                     progressBackend.classList.remove('expert')
+                    progressBackend.classList.remove('deafult')
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -472,6 +490,7 @@ function createListeApprenant(list){
                     progressBackend.classList.remove('intermediare')
                     progressBackend.classList.add('avance')
                     progressBackend.classList.remove('expert')
+                    progressBackend.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -482,6 +501,7 @@ function createListeApprenant(list){
                     progressBackend.classList.remove('intermediare')
                     progressBackend.classList.remove('avance')
                     progressBackend.classList.add('expert')
+                    progressBackend.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -501,6 +521,7 @@ function createListeApprenant(list){
                     progressComposantAcceesDonnees.classList.remove('intermediare')
                     progressComposantAcceesDonnees.classList.remove('avance')
                     progressComposantAcceesDonnees.classList.remove('expert')
+                    progressComposantAcceesDonnees.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -511,6 +532,7 @@ function createListeApprenant(list){
                     progressComposantAcceesDonnees.classList.add('intermediare')
                     progressComposantAcceesDonnees.classList.remove('avance')
                     progressComposantAcceesDonnees.classList.remove('expert')
+                    progressComposantAcceesDonnees.classList.remove('deafult')
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -521,6 +543,7 @@ function createListeApprenant(list){
                     progressComposantAcceesDonnees.classList.remove('intermediare')
                     progressComposantAcceesDonnees.classList.add('avance')
                     progressComposantAcceesDonnees.classList.remove('expert')
+                    progressComposantAcceesDonnees.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -531,6 +554,7 @@ function createListeApprenant(list){
                     progressComposantAcceesDonnees.classList.remove('intermediare')
                     progressComposantAcceesDonnees.classList.remove('avance')
                     progressComposantAcceesDonnees.classList.add('expert')
+                    progressComposantAcceesDonnees.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -550,6 +574,7 @@ function createListeApprenant(list){
                     progressUserInterfaceDynamique.classList.remove('intermediare')
                     progressUserInterfaceDynamique.classList.remove('avance')
                     progressUserInterfaceDynamique.classList.remove('expert')
+                    progressUserInterfaceDynamique.classList.remove('deafult')
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -560,6 +585,7 @@ function createListeApprenant(list){
                     progressUserInterfaceDynamique.classList.add('intermediare')
                     progressUserInterfaceDynamique.classList.remove('avance')
                     progressUserInterfaceDynamique.classList.remove('expert')
+                    progressUserInterfaceDynamique.classList.remove('deafult')
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -570,6 +596,7 @@ function createListeApprenant(list){
                     progressUserInterfaceDynamique.classList.remove('intermediare')
                     progressUserInterfaceDynamique.classList.add('avance')
                     progressUserInterfaceDynamique.classList.remove('expert')
+                    progressUserInterfaceDynamique.classList.remove('deafult')
                 break;
                 case "Expert":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -580,6 +607,7 @@ function createListeApprenant(list){
                     progressUserInterfaceDynamique.classList.remove('intermediare')
                     progressUserInterfaceDynamique.classList.remove('avance')
                     progressUserInterfaceDynamique.classList.add('expert')
+                    progressUserInterfaceDynamique.classList.remove('deafult')
                 break;
                 default:
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
