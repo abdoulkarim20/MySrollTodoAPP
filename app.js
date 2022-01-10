@@ -1,29 +1,13 @@
+import {viderChamps} from  './functionUtilitaire.js';
 const URL_API="https://eunurtstlwiselpnhdlx.supabase.co/rest/v1/Apprenant";
 const API_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoiYW5vbiIsImlhdCI6MTY0MDY4ODAyNCwiZXhwIjoxOTU2MjY0MDI0fQ.TmCrjrlgP1Eos7T1RFWTm2xZTwhIognYalzkL1ZFhoo";
 const ApprenantsData=[]
 
 const section1=document.querySelector('.formulaire-p1');
 const section2=document.querySelector('.section-liste');
-// section2.remove();
 const listeSection=document.querySelector('#liste-section');
-listeSection.addEventListener('click',(e)=>{
-    e.preventDefault();
-    section1.remove();
-    // section2.add();
-    section2.classList.add('section-liste-visible');
-
-})
-
 //Recuperation des dom de la carte
 const containerCarte=document.querySelector('.charge-cartes')
-
-// const identifiant=document.querySelector('#id-datas');
-// console.log(identifiant);
-// console.log(containerCarte);
-
-const photoApp=document.querySelector('#photo-app');
-// console.log(photoApp);
-
 //Recuperation dom du formulaire
 const nomApp=document.querySelector('.nom-app');
 const prenomApp=document.querySelector('.prenom-app ');
@@ -34,15 +18,11 @@ const progressMotSaisie=document.querySelector('#progressChar');
 const restantDeMoSaisie=document.querySelector('#restant-saisie');
 const buttonAjouterApp=document.querySelector('.ajouter-app');
 const formulaireAddApp=document.querySelector('form');
-
+const photoApp=document.querySelector('#photo-app');
 const displayError=document.querySelector('.error-message')
-
 const buttonModifier=document.querySelector('.modifer-app');
-
 const modifierData=document.querySelector('#modifer-data');
-
 const saveData=document.querySelector('#save-data');
-
 const competenceMaquette=document.querySelector('.la-comptence-mquette');
 const comptenceUserStatiqueAdaptable=document.querySelector('.la-comptence-user-statique');
 const comptenceUserDynamique=document.querySelector('.la-comptence-user-dynamique');
@@ -51,15 +31,6 @@ const comptenceCreateDb=document.querySelector('.la-comptence-cree-db');
 const comptenceComposantAcces=document.querySelector('.la-comptence-composant-accees');
 const comptenceDevlopperBackend=document.querySelector('.la-comptence-developper-backend');
 const comptenceComposantAplication=document.querySelector('.la-comptence-composant-application');
-// console.log(comptenceComposantAplication,comptenceDevlopperBackend,comptenceComposantAcces);
-
-
-// console.log(modifierData);
-// console.log(nomApp,prenomApp,niveauApp,
-//     biographieApp,progressMotSaisie,restantDeMoSaisie,
-//     compteurMotSaisie,formulaireAddApp,buttonAjouterApp);
-
-
 //Ajout dans la base de donner
 formulaireAddApp.addEventListener('submit',(e)=>{
     e.preventDefault();
@@ -133,7 +104,14 @@ formulaireAddApp.addEventListener('submit',(e)=>{
     }
 })
 
+//Fermer section1 et ouvrir liste apprenant
+listeSection.addEventListener('click',(e)=>{
+    e.preventDefault();
+    section1.remove();
+    section2.classList.add('section-liste-visible');
 
+})
+//fin
 
 //Je vais faire le control de saisie sur le champs message
 biographieApp.addEventListener('input',(e)=>{
@@ -155,13 +133,6 @@ biographieApp.addEventListener('input',(e)=>{
         buttonAjouterApp.disabled = false;
     }
 })
-// console.log(ApprenantsData);
-
-
-//Creation d'une carte.
-
-
-
 
 //Creation d'une carte qui me permet de d'ajouter en html dynamiquement
 function createCarte(carte){
@@ -264,9 +235,6 @@ saveData.addEventListener('click',(e)=>{
     // console.log(ApprenantsData);
 })
 
-
-
-
 ApprenantsData.forEach((carte)=>createCarte(carte));
 
 //Je cree une fonction pour vider les champs
@@ -284,12 +252,9 @@ function removeChamp(){
     comptenceComposantAcces.value="";
     comptenceDevlopperBackend.value="";
     comptenceComposantAplication.value="";
-
 }
 
-
-
-
+//Js liste
 const editNom=document.querySelector('.edit-nom ');
 const editPrenom=document.querySelector('.edit-prenom');
 const editNiveau=document.querySelector('.eidt-niveau');
@@ -302,16 +267,8 @@ const editCompetenceAccesDonnees=document.querySelector('.eidt-comptence-composa
 const editCompetanceDevelopperBack=document.querySelector('.edit-comptence-developper-backend');
 const editComposantApplication=document.querySelector('.edit-comptence-composant-application');
 const editBiographie=document.querySelector('.eidt-bioApp ');
-
-
-
-
-
-
-//Js liste
 const btnMofication=document.querySelector('#modifcation-apprenant');
 const listeApprenant=document.querySelector('.charge-liste-apprenanat');
-//esseye
 const identifiant=document.querySelector('#id-datas');
 //Dom statistique
 const champNomPrenom=document.querySelector('.app-name');
@@ -329,7 +286,6 @@ const progressComposantAcceesDonnees=document.querySelector('#composant-access-d
 const progressUserInterfaceDynamique=document.querySelector('#interface-dynamique');
 
 function createListeApprenant(list){
-
     let ButtonSupprimer="id_btnSupprime"+list.id;
     let ButtonModifier="id_btnModifier"+list.id;
     let ButtonDetail="id_btnDetail"+list.id;
@@ -373,7 +329,7 @@ function createListeApprenant(list){
         .then((respons)=>respons.json())
         .then((data)=>{
             // console.log(data);
-            location.reload();
+            // location.reload();
         })
         
     })
@@ -443,9 +399,18 @@ function createListeApprenant(list){
         })
         .then((response)=>response.json())
         .then((data)=>{
-            // console.log(data);
-            // window.location.reload();
-            // removeChamp();
+            viderChamps(editNom.value="",
+                        editPrenom.value="",
+                        editNiveau.value="",
+                        editBiographie.value="",
+                        editCompetanceMaquette.value="",
+                        editCompetanceUserStatique.value="",
+                        editCompetanceUserDynamique.value="",
+                        editGestionContenu.value="",
+                        editCreationDb.value="",
+                        editCompetenceAccesDonnees.value="",
+                        editCompetanceDevelopperBack.value="",
+                        editComposantApplication.value);
         })
     })
 
@@ -476,7 +441,6 @@ function createListeApprenant(list){
                     maqute.classList.remove('avance')
                     maqute.classList.remove('expert')
                     maqute.classList.remove('deafult')
-                    // userIterfaceStic.classList.add('debutatn');
                 break;
                 case "Intermediaire":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -912,9 +876,19 @@ window.addEventListener('DOMContentLoaded',(e)=>{
         });
     })
 });
-
-
 //fin js liste
+function testFactoring(addClass,removeClass){
+    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+    champNiveau.innerHTML="Niveau: "+list.niveau;
+    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+    chmpBio.innerHTML=list.biographie;
+    maqute.classList.add('debutatn');
+    maqute.classList.remove('intermediare')
+    maqute.classList.remove('avance')
+    maqute.classList.remove('expert')
+    maqute.classList.remove('deafult')
+
+}
 
 
 
