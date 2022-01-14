@@ -123,10 +123,10 @@
     width: 10%;
     background: #eb0a60; 
 }
-/* .section-liste{
-    visibility: hidden;
+.section-liste{
+    display: none;
 }
 .section-liste-visible{
-    visibility: visible;
-} */
+    display: block;
+}
 

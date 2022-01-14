@@ -107,6 +107,8 @@ formulaireAddApp.addEventListener('submit',(e)=>{
 })
 
 //Fermer section1 et ouvrir liste apprenant
+// console.log(section1,section2);
+
 listeSection.addEventListener('click',(e)=>{
     e.preventDefault();
     section1.remove();
@@ -864,7 +866,7 @@ formModif.addEventListener('click',(e)=>{
 window.addEventListener('DOMContentLoaded',(e)=>{
    getAppreannts();
 });
-
+//Function qui recupere tous les apprenants dans la base de donnees
 function getAppreannts(){
     fetch(URL_API,{
         method:"GET",
