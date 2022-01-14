@@ -6,6 +6,8 @@ const ApprenantsData=[]
 const section1=document.querySelector('.formulaire-p1');
 const section2=document.querySelector('.section-liste');
 const listeSection=document.querySelector('#liste-section');
+const addSection=document.querySelector('#add-app');
+console.log(section1,section2,listeSection);
 //Recuperation des dom de la carte
 const containerCarte=document.querySelector('.charge-cartes')
 //Recuperation dom du formulaire
@@ -224,13 +226,15 @@ saveData.addEventListener('click',(e)=>{
         })
         .then((response)=>response.json())
         .then((data)=>{
-            console.log(data); 
+            // console.log(data); 
             containerCarte.innerHTML=""; 
+            ApprenantsData.splice(0,ApprenantsData.length);
+            // console.log(ApprenantsData);
+            createListeApprenant(apprenant);
         })
     })
   
-    ApprenantsData.splice(0,ApprenantsData.length);
-    console.log(ApprenantsData);
+    
     
     // console.log(ApprenantsData);
 })
@@ -293,7 +297,7 @@ function createListeApprenant(list){
 
     listeApprenant.insertAdjacentHTML("beforeend",
     `
-        <div class="carte-list-apprenant mb-5 mx-3" id="">
+        <div class="carte-list-apprenant mb-5 mx-3" id="carte-${list.id}">
             <div class="avatar-app">
                 <img src="./images/${list.photo}" alt="" style="height: 60%; width: 60%; border-radius:100%"> 
             </div>
@@ -328,8 +332,9 @@ function createListeApprenant(list){
         })
         .then((respons)=>respons.json())
         .then((data)=>{
-            // console.log(data);
-            // location.reload();
+            document.querySelector(`#carte-${list.id}`).remove();
+            // getAppreannts();
+            // listeApprenant.innerHTML="";  
         })
         
     })
@@ -368,51 +373,12 @@ function createListeApprenant(list){
             editCompetenceAccesDonnees.value=list.competenceAccesAuxDonnee;
             editCompetanceDevelopperBack.value=list.competenceDevelopperBkend;
             editComposantApplication.value=list.competenceEnApplicationContenu;
+            console.log(identifiant.value);
         })
+        
     })
 
-    const formModif=document.querySelector('#btn-edit');
-    formModif.addEventListener('click',(e)=>{
-        e.preventDefault();
-        fetch(URL_API+"?id=eq."+identifiant.value,{
-            method:"PATCH",
-            headers:{
-                apikey:API_KEY,
-                "Content-Type": "application/json",
-                Prefer:"return=representation"
-            },
-            body:JSON.stringify({
-                                "nom":editNom.value,
-                                "prenoms":editPrenom.value,
-                                "niveau":editNiveau.value,
-                                // "photo":photoApp.value,
-                                "biographie":editBiographie.value,
-                                "competenceMaquette":editCompetanceMaquette.value,
-                                "competenceUserInterface":editCompetanceUserStatique.value,
-                                "competenceUserInterfaceDynamique":editCompetanceUserDynamique.value,
-                                "competenceGestionContenu":editGestionContenu.value,
-                                "competenceCreationDb":editCreationDb.value,
-                                "competenceAccesAuxDonnee":editCompetenceAccesDonnees.value,
-                                "competenceDevelopperBkend":editCompetanceDevelopperBack.value,
-                                "competenceEnApplicationContenu":editComposantApplication.value
-                                })
-        })
-        .then((response)=>response.json())
-        .then((data)=>{
-            viderChamps(editNom.value="",
-                        editPrenom.value="",
-                        editNiveau.value="",
-                        editBiographie.value="",
-                        editCompetanceMaquette.value="",
-                        editCompetanceUserStatique.value="",
-                        editCompetanceUserDynamique.value="",
-                        editGestionContenu.value="",
-                        editCreationDb.value="",
-                        editCompetenceAccesDonnees.value="",
-                        editCompetanceDevelopperBack.value="",
-                        editComposantApplication.value);
-        })
-    })
+    
 
     //La partie detail
     const btnDetail=document.querySelector('#'+ButtonDetail);
@@ -486,28 +452,27 @@ function createListeApprenant(list){
                     maqute.classList.add('deafult')
             }
             const comptenceUX=list.competenceUserInterface;
+            function classement(addedClass,classesTab){
+                champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
+                champNiveau.innerHTML="Niveau: "+list.niveau;
+                imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
+                chmpBio.innerHTML=list.biographie;
+
+                classesTab.forEach( function(classe){userIterfaceStic.classList.remove(classe)})
+                userIterfaceStic.classList.add(addedClass)
+
+
+            }
             switch(comptenceUX){
                 case "Débutant":
-                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-                    champNiveau.innerHTML="Niveau: "+list.niveau;
-                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-                    chmpBio.innerHTML=list.biographie;
-                    userIterfaceStic.classList.add('debutatn');
-                    userIterfaceStic.classList.remove('intermediare')
-                    userIterfaceStic.classList.remove('avance')
-                    userIterfaceStic.classList.remove('expert')
-                    userIterfaceStic.classList.remove('deafult')
+                  
+                    classement('debutatn',["debutatn", "intermediare", "avance", "expert", "deafult"])
+                
                 break;
                 case "Intermediaire":
-                    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-                    champNiveau.innerHTML="Niveau: "+list.niveau;
-                    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-                    chmpBio.innerHTML=list.biographie;
-                    userIterfaceStic.classList.remove('debutatn');
-                    userIterfaceStic.classList.add('intermediare')
-                    userIterfaceStic.classList.remove('avance')
-                    userIterfaceStic.classList.remove('expert')
-                    userIterfaceStic.classList.remove('deafult')
+              
+                    classement('intermediare',["debutatn", "intermediare", "avance", "expert", "deafult"])
+
                 break;
                 case "Avancée":
                     champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
@@ -860,13 +825,53 @@ function createListeApprenant(list){
         })
     })   
 }
+const formModif=document.querySelector('#btn-edit');
+formModif.addEventListener('click',(e)=>{
+    e.preventDefault();
+    fetch(URL_API+"?id=eq."+identifiant.value,{
+        method:"PATCH",
+        headers:{
+            apikey:API_KEY,
+            "Content-Type": "application/json",
+            Prefer:"return=representation"
+        },
+        body:JSON.stringify({
+                            "nom":editNom.value,
+                            "prenoms":editPrenom.value,
+                            "niveau":editNiveau.value,
+                            // "photo":photoApp.value,
+                            "biographie":editBiographie.value,
+                            "competenceMaquette":editCompetanceMaquette.value,
+                            "competenceUserInterface":editCompetanceUserStatique.value,
+                            "competenceUserInterfaceDynamique":editCompetanceUserDynamique.value,
+                            "competenceGestionContenu":editGestionContenu.value,
+                            "competenceCreationDb":editCreationDb.value,
+                            "competenceAccesAuxDonnee":editCompetenceAccesDonnees.value,
+                            "competenceDevelopperBkend":editCompetanceDevelopperBack.value,
+                            "competenceEnApplicationContenu":editComposantApplication.value
+                            })
+    })
+    .then((response)=>response.json())
+    .then((data)=>{
+        getAppreannts();
+        listeApprenant.innerHTML=""; 
+        document.querySelector('.btn-close').click()
+    })
+})
 
+
+//Chargement de liste
 window.addEventListener('DOMContentLoaded',(e)=>{
+   getAppreannts();
+});
+
+function getAppreannts(){
     fetch(URL_API,{
         method:"GET",
         headers:{
             apikey:API_KEY,
             "Content-Type": "application/json", 
+            Prefer:"return=representation"
         }
     })
     .then((response)=>response.json())
@@ -875,20 +880,9 @@ window.addEventListener('DOMContentLoaded',(e)=>{
             createListeApprenant(list);
         });
     })
-});
-//fin js liste
-function testFactoring(addClass,removeClass){
-    champNomPrenom.innerHTML=list.prenoms+" "+list.nom;
-    champNiveau.innerHTML="Niveau: "+list.niveau;
-    imageApp.innerHTML=`<img src="./images/${list.photo}" alt="" style="height: 100%; width: 100%; border-radius:100%">`
-    chmpBio.innerHTML=list.biographie;
-    maqute.classList.add('debutatn');
-    maqute.classList.remove('intermediare')
-    maqute.classList.remove('avance')
-    maqute.classList.remove('expert')
-    maqute.classList.remove('deafult')
-
 }
+//fin js liste
+
 
 
 
